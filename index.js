@@ -2,6 +2,7 @@ const path=require("path");
 
 //Routerat
 const homepage=require("./routes/homepage");
+const bookCollection=require("./routes/bookCollection");
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -12,6 +13,7 @@ app.set("view engine","pug");
 
 //pathat kryesor
 app.use("/", homepage);
+app.use("/book-collection", bookCollection);
 
 //midleware per err
 app.use((req, res,next)=>{
