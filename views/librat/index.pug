@@ -1,0 +1,37 @@
+include ../includes/navBar.pug
+    block head 
+        script(src="/js/main.js")
+    block content
+        section
+            .container-100
+                .row.m-0.pb-5.mb-5
+                    .col-xl-1.col-sm-12
+                        h2 Filtro
+                            ul.list-group 
+                                li.list-group-item(class=(active==="romantik" ? "active":""))
+                                    a(href='?zhanri=romantik') 
+                                        h6
+                                            small Romantik
+                                li.list-group-item(class=(active==="femij" ? "active":""))
+                                    a(href='?zhanri=femij') 
+                                        h6
+                                            small Për Fëmijë
+                                li.list-group-item(class=(active==="tjere" ? "active":""))
+                                    a(href='?zhanri=tjere')
+                                        h6
+                                            small  Të Tjerë
+                                li.list-group-item(class=(active==="clear" ? "active":""))
+                                    a(href='?zhanri=clear')
+                                        h6
+                                            small  Te Gjitha
+                    .col-xl-11.col-sm-12.col-md-11.text-center
+                        .container-fluid.pt-3
+                            .row
+                                - const width=200
+                                each liber in librat
+                                    .col-xl-4.col-md-6.pt-3
+                                        a(href="/book-profile/"+liber.id)
+                                            img(src=liber.img, alt='Titulli i Librit', width=(width+"px"), height=((width*1.6)+"px"))
+                                        h3= liber.titulli
+                                        p= liber.autori
+    include ../includes/footer.pug
