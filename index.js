@@ -3,7 +3,6 @@ const path=require("path");
 //Routerat
 const homepage=require("./routes/homepage");
 const bookCollection=require("./routes/bookCollection");
-const about=require("./routes/about");
 const bookProfile=require("./routes/bookProfile");
 const dashboard=require('./routes/dashboard');
 const crudiPerLibra=require("./routes/crudiPerLibra");
