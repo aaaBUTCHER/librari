@@ -6,6 +6,7 @@ const bookCollection=require("./routes/bookCollection");
 const about=require("./routes/about")
 const dashboard=require('./routes/dashboard')
 const crudiPerLibra=require("./routes/crudiPerLibra")
+const libratEBlere=require('./routes/libratEBlere')
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -20,6 +21,7 @@ app.use("/book-collection", bookCollection);
 app.use('/about', about);
 app.use('/dashboard', dashboard);
 app.use("/crudiPerLibra", crudiPerLibra);
+app.use('/libratEBlere', libratEBlere);
 
 //midleware per err
 app.use((req, res,next)=>{
