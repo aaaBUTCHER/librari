@@ -24,7 +24,7 @@ app.use('/about', about);
 app.use('/dashboard', dashboard);
 app.use("/crudiPerLibra", crudiPerLibra);
 app.use('/libratEBlere', libratEBlere);
-app.use("/book-profile", bookProfile)'
+app.use("/book-profile", bookProfile);
 
 //midleware per err
 app.use((req, res,next)=>{
