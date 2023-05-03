@@ -4,6 +4,7 @@ const path=require("path");
 const homepage=require("./routes/homepage");
 const bookCollection=require("./routes/bookCollection");
 const about=require("./routes/about")
+const dashboard=require('./routes/dashboard')
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -16,6 +17,7 @@ app.set("view engine","pug");
 app.use("/", homepage);
 app.use("/book-collection", bookCollection);
 app.use('/about', about);
+app.use('/dashboard', dashboard);
 
 //midleware per err
 app.use((req, res,next)=>{
