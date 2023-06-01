@@ -33,4 +33,4 @@ app.use((req, res,next)=>{
 })
 
 //eventListner
-app.listen(3000,()=>console.log("Po nijn ne porten 3000"));
+app.listen(3001,()=>console.log("Po nijn ne porten 3000"));

@@ -1,6 +1,8 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {

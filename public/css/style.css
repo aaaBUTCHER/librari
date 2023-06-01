@@ -1,6 +1,8 @@
-*{
-    padding: 0 !important;
-    margin: 0 !important;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .r{
@@ -12,3 +14,14 @@
     overflow-x: scroll !important;
     background-color: red;
 }
+
+.style{
+    min-height: 85% !important;
+}
+
+@media only screen and (min-width: 1200px) {
+    select.form-select {
+      visibility: hidden !important;
+    }
+}
+  
