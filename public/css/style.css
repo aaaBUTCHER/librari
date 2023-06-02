@@ -15,9 +15,6 @@
     background-color: red;
 }
 
-.style{
-    min-height: 85% !important;
-}
 
 @media only screen and (min-width: 1200px) {
     select.form-select {

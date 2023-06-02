@@ -1,45 +1,61 @@
-include ../includes/navBar.pug
-    block content
-        - const adminat=[{foto: '/img/rr.jpg', emri: 'Filan', mbiemri: 'Fisteku', bio: 'property ensures  ensures that the cards have a minimum width and are not torty ensures that the cards have a minimum width and are not too small to read.'},{foto: '/img/rr.jpg', emri: 'Filan', mbiemri: 'Fisteku', bio: 'property ensures that the cards.'},{foto: '/img/rr.jpg', emri: 'Filan', mbiemri: 'Fisteku', bio: 'property ensures that the cards have a minimum width and arerty ensures that the cards have  too small to read.  property ensures d.'},{foto: '/img/rr.jpg', emri: 'Filan', mbiemri: 'Fisteku', bio: 'property ensures that the cards have a minimum width and are not too small to read. property ensures that the cards have a minimum width and are not too small to read.  property ensures that the cards have a minimum width and are not too small to read.'},{foto: '/img/rr.jpg', emri: 'Filan', mbiemri: 'Fisteku', bio: 'property ensures that the cards have a minimum width ano read.'}]
-        .container.mt-5
-            h2.text-center.mb-2.mt-5 Skuadra Jone
-            .row.d-flex.flex-nowrap.mt-3.overflow-auto
-                each admin in adminat
-                    .col-md-3.mt-4
-                        .card
-                            img.card-img-top(src=admin.foto, alt='Photo')
-                            .card-body
-                                h5.card-title= admin.emri + ' ' + admin.mbiemri
-                                p.card-text= admin.bio
-        .container.border.p-4.bg-light.mt-5(style='margin-bottom: 54px')
-            .row.justify-content-center
-                h3.text-center.mb-5 Get in touch
-                .col-lg-7.mb-4.pl-4
-                    .card
-                        .card-body
-                            .form-header
-                                h3
-                                    i.fas.fa-envelope
-                                    |  Write to us:
-                            p We&apos;ll write rarely, but only the best content.
-                            br
-                            form(action='home.html', method='post')
-                                .form-group
-                                    i.fas.fa-user
-                                    label(for='form-name') Your name
-                                    input#form-name.form-control(type='text', placeholder='Enter your name', required='')
-                                .form-group
-                                    i.fas.fa-envelope
-                                    label(for='form-email') Your email
-                                    input#form-email.form-control(type='email', placeholder='Enter your name', required='')
-                                .form-group
-                                    i.fas.fa-tag
-                                    label(for='form-Subject') Subject
-                                    input#form-Subject.form-control(type='text', placeholder='Enter the subject of your message', required='')
-                                .form-group
-                                    i.fas.fa-pencil-alt
-                                    label(for='form-text') Message
-                                    textarea#form-text.md-textarea.form-control(rows='3', placeholder='Enter your message', required='')
-                                .text-center.mt-4
-                                    button.btn.bg-dark.text-white(type='submit') Submit
-    include ../includes/footer.pug
+block content
+    footer.footer-48201(style='margin-top: -24px').bg-dark.text-white.p-5
+        .container
+            .row
+                .col-md-4.pr-md-5.logo-responsive-upper
+                    a.footer-site-logo.d-block.mb-4(href='/')
+                        img(src="/img/rr.jpg", height="50px", width="50px", alt="My Website Logo", style="border-radius: 50%" )
+                    p
+                    | The customer is at the heart of our unique business model, which
+                    | includes design.
+                .col-md
+                    ul.list-unstyled.nav-links
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='/about') About Us
+                        li
+                            a(href='/contact') Contact
+                        li(v-if='!user.loggedIn')
+                            a(href='/login') Login
+                        li(v-if='!user.loggedIn')
+                            a(href='/login') Register
+                        li(v-if="user.loggedIn && user.data.email.includes('admin')")
+                            a(href='/dashboard') Dashboard
+                .col-md
+                    ul.list-unstyled.nav-links
+                        li
+                            a(href='#') Team
+                        li
+                            a(href='#') Return &amp; Exchanges
+                        li
+                            a(href='#') Payment Methods
+                .col-md
+                    ul.list-unstyled.nav-links
+                        li
+                            a(href='#') Privacy Policy
+                        li
+                            a(href='#') Terms &amp; Conditions
+                        li
+                            a(href='#') Partners
+                .col-md.text-md-center.logo-responsive
+                    ul.social.list-unstyled
+                        li
+                            a(href='#')
+                                span.fa.fa-facebook
+                        li
+                            a(href='#')
+                                span.icon-twitter
+                        li
+                            a(href='#')
+                                span.icon-twitter
+                        li
+                            a(href='#')
+                                span.icon-facebook
+                    p
+                        a.btn.btn-success(href='/contact') Contact Us
+            .row
+                .col-12.text-center
+                    .copyright.mt-5.pt-5
+                        p
+                            small &copy; 2022-2023 All Rights
