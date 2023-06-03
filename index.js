@@ -1,4 +1,5 @@
 const path=require("path");
+const port= 3000;
 
 //Routerat
 const homepage=require("./routes/homepage");
@@ -33,4 +34,4 @@ app.use((req, res,next)=>{
 })
 
 //eventListner
-app.listen(3001,()=>console.log("Po nijn ne porten 3000"));
+app.listen(port,()=>console.log("Po nijn ne porten "+ port));
