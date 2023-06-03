@@ -7,30 +7,29 @@ include ../includes/navBar.pug
                 .row.m-0.pb-5.mb-5
                     .col-xl-2.col-sm-12
                         h2 Filtro
-                            select.form-select(name='zhanri')
+                            select.form-select.d-xl-none(name='zhanri')
                                 option(value='romantik', selected=(active==="romantik")) Romantik
                                 option(value='femij', selected=(active==="femij")) Për Fëmijë
                                 option(value='tjere', selected=(active==="tjere")) Të Tjerë
                                 option(value='clear', selected=(active==="clear")) Te Gjitha
-
-                            p ----------------------
-                            ul.list-group 
+                                
+                            ul.list-group.d-none.d-xl-block
                                 li.list-group-item(class=(active==="romantik" ? "active":""))
                                     a(href='?zhanri=romantik') 
                                         h6
-                                            small Romantik
+                                        small Romantik
                                 li.list-group-item(class=(active==="femij" ? "active":""))
                                     a(href='?zhanri=femij') 
                                         h6
-                                            small Për Fëmijë
+                                        small Për Fëmijë
                                 li.list-group-item(class=(active==="tjere" ? "active":""))
                                     a(href='?zhanri=tjere')
                                         h6
-                                            small  Të Tjerë
+                                        small  Të Tjerë
                                 li.list-group-item(class=(active==="clear" ? "active":""))
                                     a(href='?zhanri=clear')
                                         h6
-                                            small  Te Gjitha
+                                        small  Te Gjitha
                     .col-xl-10.col-sm-12.text-center
                         .col-xl-12
                             p ssdsds
