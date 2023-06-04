@@ -8,7 +8,7 @@ const options = {
 }
 const pool = mysql.createPool(options);
 
-module.exports= pool;
+module.exports = pool;
 
 // pool.getConnection((error, connection) => {
 //     if (error) {
@@ -28,3 +28,4 @@ module.exports= pool;
 //     });
 //   });
 
+//hello
