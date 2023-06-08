@@ -3,13 +3,22 @@ include ../includes/navBar.pug
         script(src="/js/main.js")
     block content
         section
-            .container-100
+            .container-100.ms-5.me-5
                 .row.m-0.pb-5.mb-5
-                    .col-xl-1.col-sm-12
+                    .col-xl-2.col-sm-12
                         h2 Filtro
-                            ul.list-group 
-                                li.list-group-item(class=(active==="romantik" ? "active":""))
-                                    a(href='?zhanri=romantik') 
+                            select.form-select.d-xl-none(name='zhanri')
+                                option(value='Romance', selected=(active==="Romance"))
+                                      a(href='?zhanri=Romance') 
+                                        h6
+                                            small Romantik
+                                option(value='femij', selected=(active==="femij")) Për Fëmijë
+                                option(value='tjere', selected=(active==="tjere")) Të Tjerë
+                                option(value='clear', selected=(active==="clear")) Te Gjitha
+                                
+                            ul.list-group.d-none.d-xl-block
+                                li.list-group-item(class=(active==="Romance" ? "active":""))
+                                    a(href='?zhanri=Romance') 
                                         h6
                                             small Romantik
                                 li.list-group-item(class=(active==="femij" ? "active":""))
@@ -24,14 +33,16 @@ include ../includes/navBar.pug
                                     a(href='?zhanri=clear')
                                         h6
                                             small  Te Gjitha
-                    .col-xl-11.col-sm-12.col-md-11.text-center
-                        .container-fluid.pt-3
-                            .row
-                                - const width=200
-                                each liber in librat
-                                    .col-xl-4.col-md-6.pt-3
-                                        a(href="/book-profile/"+liber.id)
-                                            img(src=liber.img, alt='Titulli i Librit', width=(width+"px"), height=((width*1.6)+"px"))
-                                        h3= liber.titulli
-                                        p= liber.autori
+                    .col-xl-10.col-sm-12.text-center
+                        .col-xl-12
+                            .container-fluid.pt-3
+                                .row
+                                    - const width=200
+                                    each liber in librat
+                                        .col-xl-3.col-sm-5.pt-3
+                                            a(href="/book-profile/"+liber.id)
+                                                img(src=liber.linku, alt='Titulli i Librit', width=(width+"px"), height=((width*1.6)+"px"))
+                                            h3= liber.titulli
+                                            p= liber.autori
+                                            p= liber.zhanri 
     include ../includes/footer.pug

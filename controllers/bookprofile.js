@@ -1,30 +1,54 @@
 const dbBookProfile={titulli:"Beni ecen vetem", autori:"Fan Noli", img:"/img/img1.jpg"};
-const dbBooks=[ {id:1, titulli:"Beni ecen nuk vetem", autori:"Fan Noli", img:"/img/img1.jpg", zhanri:"femij"}, 
-                {id:2, titulli:"Beni nashta ecen  vetem", autori:"Fan Noli", img:"/img/img1.jpg", zhanri:"femij"},
-                {id:3, titulli:"Beni munde te ecen vetem", autori:"Fan Noli", img:"/img/img1.jpg", zhanri:"komedi"},
-                {id:4, titulli:"Beni nuk ecen vetem", autori:"Fan Noli", img:"/img/img1.jpg", zhanri:"tjere"},
-                {id:5, titulli:"Beni nuk eshte fukara", autori:"Fan Noli", img:"/img/img1.jpg", zhanri:"romantik"},
-                {id:6, titulli:"Beni ecen vetem", autori:"Fan Noli", img:"/img/img1.jpg", zhanri:"romantik"},
-                {id:6, titulli:"Beni ecen vetem", autori:"Fan Noli", img:"/img/img1.jpg", zhanri:"romantik"},
-            ];
+const Librat = require('../models/libra');
 
-exports.getBookProfile=(req, res)=>{
+exports.getBookProfile =async (req, res)=>{
     const id=req.params.id;
-    const libriIDerguar=dbBooks[id-1];
-    res.render("librat/profiliILibrit", {libri:libriIDerguar});
+    const libriIDerguar= await Librat.getAllBooks();
+    const libriIFLitruar=libriIDerguar.filter(c=>{return c.id==id});
+    const [libriIVetem]= libriIFLitruar;
+    console.log(libriIVetem)
+    res.render("librat/profiliILibrit", {libri: libriIVetem, librrrr:libriIDerguar });
 }
 
-exports.getAllBooks=(req, res)=>{
-    const zhanri=req.query;
-    let zhanriAktiv="clear";
+exports.deleteABook =async (req, res)=>{
+    console.log(req.params.id);
+    await Librat.deletaABook(req.params.id);
+    await res.render("dashboard/dashboard", {aaa1:  Librat.getAllBooks()});
+}
+
+exports.getAllBooks = async (req, res)=>{
+    const dbBooks = Librat.getAllBooks();    
+    const zhanri = req.query;
+    let zhanriAktiv = "clear";
     if(!(Object.keys(zhanri).length === 0) && zhanri.zhanri!=="clear"){
         zhanriAktiv=zhanri.zhanri;
-        const filterdBooks=dbBooks.filter((c)=>{
-            return zhanri.zhanri===c.zhanri;
-        });
-        return res.render("librat/index",{titulliIfaqes:"Librat me zhaner: " + zhanri.zhanri, active: zhanriAktiv, librat: filterdBooks});
+        const array = await Librat.getAllBooks();
+        filterdBooks= array.filter((c)=>{ return zhanri.zhanri === c.zhanri;});
+        return res.render("librat/index",{titulliIfaqes:"Librat me zhaner: " + zhanri.zhanri, active: zhanriAktiv, librat:  await filterdBooks});
     }
-    res.render("librat/index",{titulliIfaqes:"Te gjitha librat", librat: dbBooks, active: zhanriAktiv})
+    res.render("librat/index",{titulliIfaqes:"Te gjitha librat", librat: await dbBooks, active: zhanriAktiv})
 }
 
+exports.createBook = async (req, res)=>{
+    const titulli = req.body.titulli;
+    const isbn = req.body.isbn;
+    const autori = req.body.autori;
+    const viti = req.body.vitiBotimit;
+    const cmimi = req.body.cmimi;
+    const isVisible = "1"; 
+    const pdfLink = req.body.pdfLink;
+    const imgId = 1;
+    const pershkrimi = req.body.pershkrimi;
+    const zhanri = req.body.zhanri;
+    const libri = new Librat(titulli, parseInt(isbn), autori, parseInt(viti), parseFloat(cmimi), parseInt(zhanri), parseInt(isVisible), parseInt(pdfLink), parseInt(imgId), parseInt(pershkrimi));
+    
+    try{
+        await libri.createBook();
+        const allBooks= await Librat.getAllBooks();
+        await res.render("dashboard/dashboard", {aaa1:  allBooks, errorActive: "none"});
+    }catch(err){
+        const allBooks= await Librat.getAllBooks();
+        await res.render("dashboard/dashboard", {aaa1:  allBooks, errorActive: "block", err:err});
+    }
+}
 //module.exports=dbBooks;
