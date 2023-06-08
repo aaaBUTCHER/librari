@@ -9,6 +9,8 @@ const crudiPerLibra=require("./routes/crudiPerLibra");
 const libratEBlere=require('./routes/libratEBlere');
 const about=require("./routes/about");
 const userProfile=require("./routes/userProfile");
+const login=require("./routes/sign-in");
+const register=require("./routes/register");
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -26,6 +28,8 @@ app.use('/dashboard', dashboard);
 app.use("/crudiPerLibra", crudiPerLibra);
 app.use('/libratEBlere', libratEBlere);
 app.use("/user-profile", userProfile);
+app.use("/sign-in",login);
+app.use("/register",register);
 
 //midleware per err
 app.use((req, res,next)=>{
