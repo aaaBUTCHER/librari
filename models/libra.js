@@ -21,8 +21,6 @@ class Librat{
             const query = 'INSERT INTO libraria.librat SET ?';
             const [results] = await conn.query(query, this);
             return results.insertId;
-       
-        
     }
 
     getBook(){
@@ -38,10 +36,11 @@ class Librat{
     static async getAllBooks(){
         try{
             const [row, field] = await  conn.query(`
-            SELECT l.id, titulli, autori, i.linku, z.zhanri 
+            SELECT l.id, isbn, titulli, pdf_link, autori, viti_botimit, i.linku, z.zhanri, l.is_visible, p.texti
             FROM librat l
             join image i on l.image_id=i.id
-            join zhanri z on l.zhanri=z.id;`)
+            join zhanri z on l.zhanri=z.id
+            join pershkrimi p on l.pershkrimi_id=p.id;`)
             return row;
         }
         catch(err){

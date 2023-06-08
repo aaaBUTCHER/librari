@@ -1,10 +1,13 @@
 const dbBookProfile={titulli:"Beni ecen vetem", autori:"Fan Noli", img:"/img/img1.jpg"};
 const Librat = require('../models/libra');
 
-exports.getBookProfile = (req, res)=>{
+exports.getBookProfile =async (req, res)=>{
     const id=req.params.id;
-    const libriIDerguar=dbBooks[id-1];
-    res.render("librat/profiliILibrit", {libri:libriIDerguar});
+    const libriIDerguar= await Librat.getAllBooks();
+    const libriIFLitruar=libriIDerguar.filter(c=>{return c.id==id});
+    const [libriIVetem]= libriIFLitruar;
+    console.log(libriIVetem)
+    res.render("librat/profiliILibrit", {libri: libriIVetem, librrrr:libriIDerguar });
 }
 
 exports.deleteABook =async (req, res)=>{
@@ -47,10 +50,5 @@ exports.createBook = async (req, res)=>{
         const allBooks= await Librat.getAllBooks();
         await res.render("dashboard/dashboard", {aaa1:  allBooks, errorActive: "block", err:err});
     }
-        
-     
-    
-    
-
 }
 //module.exports=dbBooks;

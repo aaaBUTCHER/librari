@@ -58,5 +58,3 @@ function fshij(id){
           console.error('Error:', error);
         });
 }
-
-
