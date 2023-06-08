@@ -15,7 +15,7 @@ body
     .container.col-md-4.d-flex.align-items-center.justify-content-center.reg
       .col-md-6
         h2.text-center.mb-4 Register
-        form(action='/log-in', method='post')
+        form(action='/sign-in', method='post')
           .mb-3
             i.fas.fa-user
             label.form-label(for='name') Name
@@ -39,7 +39,7 @@ body
           button.btn.bg-dark.text-white(type='submit') Register
           p.my-3.p
             | A member? 
-            a(href='log-in') LogIn now
+            a(href='sign-in') LogIn now
             
     script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
     script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js')
