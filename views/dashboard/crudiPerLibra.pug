@@ -1,74 +1,87 @@
 block content
-    .container-100(style="min-height: 80%;")
+    .container-100
         .row.m-0.d-flex.justify-content-center
             .col-xl-10.col-sm-12.justify-content-center.align-items-center.p-3.m-3
-                .d.mb-5
-                    table.table
-                        thead.thead-dark
-                            tr
-                                th Id 
-                                th ISBN
-                                th Titulli 
-                                th Autori 
-                                th Zhanrri
-                                th Pershkrimi 
-                                th
-                        tbody
-                            each liber in aaa1
-                                tr 
-                                    td= liber.id
-                                    td= liber.isbn 
-                                    td= liber.titulli 
-                                    td= liber.autori 
-                                    td= liber.zhanri
-                                    td(style="max-width:200px !important;")= liber.texti
-                                    td 
-                                        button.btn.btn-secondary Edito
-                                    td 
-                                        button#fshij.btn.btn-danger(onclick="fshij("+liber.id+")") Delete
-                .bg-secondary.p-5.pb-1.pt-1(style="border-radius: 10px; margin-top: 85px !important;").m-3.mb-5.mt-5
-                    h1.m-4.text-center.mt-4 Shto Liber
-                    .justify-content-center
-                        form(method="POST" action="/book-profile")
-                            table.table
-                                tbody
-                                        tr.m-1
+                table.table 
+                    thead.thead-dark
+                        tr
+                            th Id 
+                            th ISBN
+                            th Titulli 
+                            th Autori 
+                            th Zhanrri
+                            th Pershkrimi 
+                            th
+                    tbody
+                        each liber in aaa1
+                            tr 
+                                td= liber.id
+                                td= liber.isbn 
+                                td= liber.titulli 
+                                td= liber.autori 
+                                td= liber.zhanri
+                                td(style="max-width:200px !important;")= liber.pershkrimi
+                                td= liber.vitiBotimit
+                                td 
+                                    button.btn.btn-secondary Edito
+                                td 
+                                    button#fshij.btn.btn-danger(onclick="fshij("+liber.id+")") Delete
+                    br
+
+
+                    form(action="/book-profile", method="post")
+                        input#hello.form-control(name="hello", type="text")
+                        input(type="submit", value="Krijo")
+ 
+                .justify-content-center(style =" border: 2px solid black")
+                    form(method="POST" action="/book-profile")
+                        table.table
+                            tbody
+                                    tr
+                                        td 
+                                            .form-group
+                                                label(for="id") Id:
+                                                    input#id.form-control(name="id", type="text")
+                                            .form-group
+                                                label(for="isbn") ISBN:
+                                                    input#isbn.form-control(name="isbn", type="text")
+                                            .form-group
+                                                label(for="isVisiable") Is Visiable:
+                                                    input#isVisiable.form-control(name="isVisiable", type="boolean")
+                                        td
+                                            .form-group
+                                                label(for="titulli") Titulli:
+                                                    input#titulli.form-control(name="titulli", type="text")
+                                            .form-group
+                                                label(for="autori") Autori:
+                                                    input#autori.form-control(name="autori", type="text")
+                                            .form-group 
+                                                label(for="zhanri") Zhanrri:
+                                                    input#zhanri.form-control(name="zhanri", type="text")
+                                        td
+                                            .form-group
+                                                label(for="vitiBotimit") Viti i Botimit:
+                                                    input#vitiBotimit.form-control(name="vitiBotimit", type="number")
+                                            .form-group
+                                                label(for="pdfLink") PDF-Link:
+                                                    input#pdfLink.form-control(name="pdfLink", type="number")
+                                            .form-group
+                                                label(for="imgLink") IMG-Link:
+                                                    input#imgLink.form-control(name="imgLink", type="number")
+                                        td  
+                                            .form-group
+                                                label(for="cmimi") Cmimi:
+                                                    input#cmimi.form-control(name="cmimi", type="float")
+                                            .form-group
+                                                label(for="pershkrimi" ) Pershkrimi:
+                                                    textarea#pershkrimi.form-control(name="pershkrimi", rows="4",)
+                                        tr(style ="border: 1px white !important")
                                             td
                                                 .form-group
-                                                    label(for="isbn") ISBN:
-                                                        input#isbn.form-control(name="isbn", type="text")
-                                                .form-group
-                                                    label(for="isVisiable") Is Visiable:
-                                                        input#isVisiable.form-control(name="isVisiable", type="boolean")
-                                                .form-group
-                                                    label(for="cmimi") Cmimi:
-                                                        input#cmimi.form-control(name="cmimi", type="float") 
+                                                    button.btn.btn-primary.m-2(type="submit", ) Pastro
+                                            td 
+                                            td
                                             td
                                                 .form-group
-                                                    label(for="titulli") Titulli:
-                                                        input#titulli.form-control(name="titulli", type="text")
-                                                .form-group
-                                                    label(for="autori") Autori:
-                                                        input#autori.form-control(name="autori", type="text")
-                                                .form-group 
-                                                    label(for="zhanri") Zhanrri:
-                                                        input#zhanri.form-control(name="zhanri", type="text")
-                                            td
-                                                .form-group
-                                                    label(for="vitiBotimit") Viti i Botimit:
-                                                        input#vitiBotimit.form-control(name="vitiBotimit", type="number")
-                                                .form-group
-                                                    label(for="pdfLink") PDF-Link:
-                                                        input#pdfLink.form-control(name="pdfLink", type="number")
-                                                .form-group
-                                                    label(for="imgLink") IMG-Link:
-                                                        input#imgLink.form-control(name="imgLink", type="number")
-                                            td
-                                                .form-group
-                                                    label(for="pershkrimi" ) Pershkrimi:
-                                                        textarea#pershkrimi.form-control(name="pershkrimi", rows="6", style="resize: none;")
-                                        tr.m-1(style ="border: 1px white !important;")
-                                            td(colspan="4", style =" border-bottom: none;")
-                                                .form-group
-                                                    button.btn.btn-primary.m-2(type="submit", id="shto", onclick="submitForm()", style="float: right;") Shto liber
-                                        .alert-danger.m-1(role="alert", style="display:"+errorActive+"; border-radius: 7px;",)= err
+                                                    button.btn.btn-primary.m-2(type="submit", id="shto", onclick="submitForm()") Shto liber
+                                    .alert.alert-danger(role="alert", style="display:"+errorActive+"")= err

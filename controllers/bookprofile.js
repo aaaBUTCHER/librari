@@ -51,10 +51,5 @@ exports.createBook = async (req, res)=>{
         const allBooks= await Librat.getAllBooks();
         await res.render("dashboard/dashboard", {aaa1:  allBooks, errorActive: "block", err:err, isAuthenticated: req.session.isLoggedIn});
     }
-        
-     
-    
-    
-
 }
 //module.exports=dbBooks;

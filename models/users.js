@@ -38,6 +38,7 @@ class Users{
         this.passwordi= await encryptPassword(this.passwordi);
         console.log(this);
     }
+    
     static async getAllUsers(){
         try{
             const [row, field] = await  conn.query(`
@@ -48,10 +49,7 @@ class Users{
         catch(err){
             console.error(err);
         }
-
     }
-
-
 }
 
 module.exports = Users;

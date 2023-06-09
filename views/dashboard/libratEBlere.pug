@@ -6,31 +6,19 @@ block content
                     thead.thead-dark
                         tr
                             th User
-                            th Titulli
-                            th Autori
+                            th Titulli 
+                            th Autori 
                             th Zhanrri
                     tbody
                         each liber in aaa1
-                            tr
-                                td= liber.emriMbiemri
-                                td= liber.titulli
-                                td= liber.autori
+                            tr 
+                                td (Emri&Mbiemri)
+                                td= liber.titulli 
+                                td= liber.autori 
                                 td= liber.zhanri
-                                td
-                                    button.btn.btn-secondary( data-bs-toggle="modal" data-bs-target="#exampleModal" ) Faktura 
-                                    .modal.fade#exampleModal(tabindex="-1", aria-labelledby="exampleModalLabel", aria-hidden="true")
-                                        .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
-                                            .modal-content
-                                                .modal-header
-                                                    h5.modal-title#exampleModalLabel "Fatura : "+ fatura_id
-                                                    button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
-                                                .modal-body
-                                                    p "Blersi : "+
-                                                    p "Shitsi : "+
-                                                    p "Data : "+
-                                                    p "Cmimi : "+
-                                                    p "Libra_id : "+
-                                                .modal-footer
-                                                    button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
-                                td
+                                td 
+                                    dialog(style="width:50%;background-color:#F4FFEF;border:1px dotted black;")
+                                        p kjo eshte fatura 
+                                        button mbyll
+                                td 
                                     button.btn.btn-danger Anulo Blerjen
