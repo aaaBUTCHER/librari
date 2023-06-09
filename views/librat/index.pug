@@ -4,9 +4,9 @@ include ../includes/navBar.pug
     block content
         section
             .container-100.ms-5.me-5
-                .row.m-0.pb-5.mb-5
+                .row.m-0.pb-5.mb-5(style="min-height: 80% !important;")
                     .col-xl-2.col-sm-12
-                        h2 Filtro
+                        h2.mt-4 Filtro
                             select.form-select.d-xl-none(name='zhanri')
                                 option(value='Romance', selected=(active==="Romance"))
                                       a(href='?zhanri=Romance') 
@@ -15,20 +15,28 @@ include ../includes/navBar.pug
                                 option(value='femij', selected=(active==="femij")) Për Fëmijë
                                 option(value='tjere', selected=(active==="tjere")) Të Tjerë
                                 option(value='clear', selected=(active==="clear")) Te Gjitha
-                                
-                            ul.list-group.d-none.d-xl-block
+                               
+                            ul.list-group.d-none.d-xl-block.mt-3
+                                li.list-group-item(class=(active==="Drame" ? "active":""))
+                                    a(href='?zhanri=Drame') 
+                                        h6
+                                            small Drame
+                                li.list-group-item(class=(active==="Tragjedi" ? "active":""))
+                                    a(href='?zhanri=Tragjedi') 
+                                        h6
+                                            small Tragjedi
                                 li.list-group-item(class=(active==="Romance" ? "active":""))
                                     a(href='?zhanri=Romance') 
                                         h6
-                                            small Romantik
-                                li.list-group-item(class=(active==="femij" ? "active":""))
-                                    a(href='?zhanri=femij') 
+                                            small Romance
+                                li.list-group-item(class=(active==="Roman" ? "active":""))
+                                    a(href='?zhanri=Roman') 
                                         h6
-                                            small Për Fëmijë
-                                li.list-group-item(class=(active==="tjere" ? "active":""))
-                                    a(href='?zhanri=tjere')
+                                            small Roman
+                                li.list-group-item(class=(active==="Poem" ? "active":""))
+                                    a(href='?zhanri=Poem') 
                                         h6
-                                            small  Të Tjerë
+                                            small Poem
                                 li.list-group-item(class=(active==="clear" ? "active":""))
                                     a(href='?zhanri=clear')
                                         h6
@@ -44,5 +52,5 @@ include ../includes/navBar.pug
                                                 img(src=liber.linku, alt='Titulli i Librit', width=(width+"px"), height=((width*1.6)+"px"))
                                             h3= liber.titulli
                                             p= liber.autori
-                                            p= liber.zhanri 
+                                            p= liber.zhanrii
     include ../includes/footer.pug
