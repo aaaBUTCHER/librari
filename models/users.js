@@ -1,10 +1,7 @@
 const conn = require("../util/db");
 const bcrypt = require('bcrypt');
 
-async function encryptPassword(password){
-    const hash= await bcrypt.hash(password, 10);
-    return hash;
-}
+
 class Users{
     constructor(emrin, mbiemri, email, passwordi, privilegji, user_image, bio){
                     this.emrin=emrin;
@@ -16,40 +13,64 @@ class Users{
                     this.bio=bio;
     }
     async createUser(){
-        this.passwordi= await encryptPassword(this.passwordi);
+        const hash=await bcrypt.hash(this.passwordi, 10)
+        this.passwordi=hash;
         const query = 'INSERT INTO libraria.userat SET ?';
         const [results] = await conn.query(query, this);
-        return results;
+        return results.insertId;
     }
 
+    static async getAllAdmins(){
+        const query = 'SELECT * FROM libraria.userat where privilegji=2;';
+        const [results] = await conn.query(query);
+        return results;
+    }
     async getUser(id){
-        const query = 'SELECT FROM userat WHERE id = ?';
+        const query = 'SELECT * FROM userat WHERE id = ?';
         const [results] = await conn.query(query, [id]);
+        return results;
+    }
+    static async  getUserByEmail(email){
+        const query = 'SELECT * FROM userat WHERE email = ?';
+        const [results, field] = await conn.query(query, [email]);
         return results;
     }
 
     static async deletaUser(id){
-        const query = 'DELETE FROM userat WHERE id = ?';
+        const query = 'DELETE * FROM userat WHERE id = ?';
         const [results] = await conn.query(query, [id]);
         return results.affectedRows;
     }
 
     async printo(){
-        this.passwordi= await encryptPassword(this.passwordi);
+        const hash=await bcrypt.hash(this.passwordi, saltRounds)
+        this.passwordi=hash;
         console.log(this);
     }
-    
     static async getAllUsers(){
         try{
             const [row, field] = await  conn.query(`
-            SELECT id, emrin, mbiemri, email, passwordi, privilegji 
+            SELECT id, emrin, mbiemri, email, passwordi, privilegji, user_image, bio
             FROM userat`)
             return row;
         }
         catch(err){
             console.error(err);
         }
+
     }
+
+
 }
+
+
+// const hello= async ()=>{
+//     const [result]= await Users.getUserByEmail("c@c.c");
+
+//     console.log(result);
+// }
+
+// hello();
+
 
 module.exports = Users;
