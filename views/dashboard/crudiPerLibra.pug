@@ -1,50 +1,53 @@
 block content
-    .container-100
+    .container-100(style="min-height: 80%;")
         .row.m-0.d-flex.justify-content-center
             .col-xl-10.col-sm-12.justify-content-center.align-items-center.p-3.m-3
-                table.table 
-                    thead.thead-dark
-                        tr
-                            th Id 
-                            th ISBN
-                            th Titulli 
-                            th Autori 
-                            th Zhanrri
-                            th Pershkrimi 
-                            th
-                    tbody
-                        each liber in aaa1
-                            tr 
-                                td= liber.id
-                                td= liber.isbn 
-                                td= liber.titulli 
-                                td= liber.autori 
-                                td= liber.zhanri
-                                td(style="max-width:200px !important;")= liber.texti
-                                td= liber.viti_botimit
-                                td 
-                                    a.btn.btn-secondary(href="/crudiPerLibra/"+liber.id+"") Edito
-                                td 
-                                    button#fshij.btn.btn-danger(onclick="fshij("+liber.id+")") Delete
-                    br
-
-
-                    form(action="/book-profile", method="post")
-                        input#hello.form-control(name="hello", type="text")
-                        input(type="submit", value="Krijo")
- 
-                .justify-content-center(style =" border: 2px solid black")
-                    form(method="POST" action="/book-profile")
-                        table.table
-                            tbody
+                .d.mb-5
+                    table.table 
+                        thead.thead-dark
+                            tr
+                                th Id 
+                                th ISBN
+                                th Titulli 
+                                th Autori 
+                                th Zhanrri
+                                th Pershkrimi 
+                                th
+                        tbody
+                            each liber in aaa1
+                                tr 
+                                    td= liber.id
+                                    td= liber.isbn 
+                                    td= liber.titulli 
+                                    td= liber.autori 
+                                    td= liber.zhanri
+                                    td(style="max-width:200px !important;")= liber.texti
+                                    td= liber.viti_botimit
+                                    td 
+                                        a.btn.btn-secondary(href="/crudiPerLibra/"+liber.id+"") Edito
+                                    td 
+                                        button#fshij.btn.btn-danger(onclick="fshij("+liber.id+")") Delete
+                        br
+                        form(action="/book-profile", method="post")
+                            input#hello.form-control(name="hello", type="text")
+                            input(type="submit", value="Krijo")    
+                .bg-secondary.p-5.pb-1.pt-1(style="border-radius: 10px; margin-top: 85px !important;").m-3.mb-5.mt-5
+                    h1.m-4.text-center.mt-4 Shto Liber
+                    .justify-content-center
+                        form(method="POST" action="/book-profile")
+                            table.table
+                                tbody
                                     tr
-                                        td 
+                                        td
                                             .form-group
                                                 label(for="isbn") ISBN:
                                                     input#isbn.form-control(name="isbn", type="text")
                                             .form-group
                                                 label(for="isVisiable") Is Visiable:
                                                     input#isVisiable.form-control(name="isVisiable", type="boolean")
+                                            .form-group
+                                                label(for="cmimi") Cmimi:
+                                                    input#cmimi.form-control(name="cmimi", type="float") 
                                         td
                                             .form-group
                                                 label(for="titulli") Titulli:
@@ -70,20 +73,12 @@ block content
                                             .form-group
                                                 label(for="imgLink") IMG-Link:
                                                     input#imgLink.form-control(name="imgLink", type="number")
-                                        td  
-                                            .form-group
-                                                label(for="cmimi") Cmimi:
-                                                    input#cmimi.form-control(name="cmimi", type="float")
+                                        td
                                             .form-group
                                                 label(for="pershkrimi" ) Pershkrimi:
-                                                    textarea#pershkrimi.form-control(name="pershkrimi", rows="4",)
-                                        tr(style ="border: 1px white !important")
-                                            td
+                                                    textarea#pershkrimi.form-control(name="pershkrimi", rows="6", style="resize: none;")
+                                        tr.m-1(style ="border: 1px white !important")
+                                            td(colspan="4", style =" border-bottom: none;")
                                                 .form-group
-                                                    button.btn.btn-primary.m-2(type="submit", ) Pastro
-                                            td 
-                                            td
-                                            td
-                                                .form-group
-                                                    button.btn.btn-primary.m-2(type="submit", id="shto", onclick="submitForm()") Shto liber
-                                    .alert.alert-danger(role="alert", style="display:"+errorActive+"")= err
+                                                    button.btn.btn-primary.m-2(type="submit", id="shto", onclick="submitForm()", style="float: right;") Shto liber
+                                        .alert-danger.m-1(role="alert", style="display:"+errorActive+"; border-radius: 7px;",)= err
