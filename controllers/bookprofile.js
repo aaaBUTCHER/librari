@@ -18,7 +18,7 @@ exports.deleteABook =async (req, res)=>{
         errori= err;
     }
    // await Librat.deletaABook(req.params.id);
-    await res.render("dashboard/dashboard", {aaa1:  Librat.getAllBooks(), isAuthenticated: req.session.isLoggedIn, err:errori});
+    await res.render("dashboard/crudiPerLibra", {aaa1:  Librat.getAllBooks(), isAuthenticated: req.session.isLoggedIn, err:errori});
 }
 
 exports.getAllBooks = async (req, res)=>{
@@ -81,7 +81,7 @@ exports.updateAbook = async (req, res)=>{
     const zhaner= req.body.zhaner;
     const cmimi= req.body.cmimi;
     const pershkrimi = req.body.pershkrimi;
-    const bookArray= [id, titulli, autori, viti_botimit, cmimi,zhaner, pershkrimi];
+    const bookArray= [id, titulli, autori, viti_botimit, cmimi, zhaner, pershkrimi];
     
       Librat.updateBooks(bookArray).then(result=>{
         console.log(result);
