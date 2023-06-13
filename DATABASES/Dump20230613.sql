@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `libraria` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `libraria`;
 -- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
 -- Host: localhost    Database: libraria
@@ -81,12 +79,13 @@ CREATE TABLE `koleksioni` (
   `id` int NOT NULL AUTO_INCREMENT,
   `userat_id` int DEFAULT NULL,
   `librat_id` int DEFAULT NULL,
+  `data_e_blerjes` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `userat_id` (`userat_id`),
   KEY `librat_id` (`librat_id`),
   CONSTRAINT `koleksioni_ibfk_1` FOREIGN KEY (`userat_id`) REFERENCES `userat` (`id`),
   CONSTRAINT `koleksioni_ibfk_2` FOREIGN KEY (`librat_id`) REFERENCES `librat` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +94,7 @@ CREATE TABLE `koleksioni` (
 
 LOCK TABLES `koleksioni` WRITE;
 /*!40000 ALTER TABLE `koleksioni` DISABLE KEYS */;
-INSERT INTO `koleksioni` VALUES (2,1,35),(3,1,37),(4,1,37),(5,1,49),(6,1,37),(7,1,49),(8,7,37),(9,7,37),(10,7,49),(11,NULL,35),(12,1,38),(13,20,49),(14,20,35),(15,NULL,35),(16,NULL,38),(17,23,37),(18,23,38),(19,23,60),(20,NULL,38),(21,26,38),(22,26,37),(23,27,37);
+INSERT INTO `koleksioni` VALUES (2,1,35,'2023-06-13 12:36:45'),(3,1,37,'2023-06-13 12:36:45'),(4,1,37,'2023-06-13 12:36:45'),(5,1,49,'2023-06-13 12:36:45'),(6,1,37,'2023-06-13 12:36:45'),(7,1,49,'2023-06-13 12:36:45'),(8,7,37,'2023-06-13 12:36:45'),(9,7,37,'2023-06-13 12:36:45'),(10,7,49,'2023-06-13 12:36:45'),(11,NULL,35,'2023-06-13 12:36:45'),(12,1,38,'2023-06-13 12:36:45'),(13,20,49,'2023-06-13 12:36:45'),(14,20,35,'2023-06-13 12:36:45'),(15,NULL,35,'2023-06-13 12:36:45'),(16,NULL,38,'2023-06-13 12:36:45'),(17,23,37,'2023-06-13 12:36:45'),(18,23,38,'2023-06-13 12:36:45'),(19,23,60,'2023-06-13 12:36:45'),(20,NULL,38,'2023-06-13 12:36:45'),(21,26,38,'2023-06-13 12:36:45'),(22,26,37,'2023-06-13 12:36:45'),(23,27,37,'2023-06-13 12:36:45'),(24,23,35,'2023-06-13 12:36:45'),(25,23,37,'2023-06-13 12:36:45'),(26,23,37,'2023-06-13 12:36:45'),(27,23,35,'2023-06-13 12:37:08'),(28,23,35,'2023-06-13 12:37:10'),(29,23,49,'2023-06-13 12:37:34'),(30,23,122,'2023-06-13 12:37:38'),(31,23,38,'2023-06-13 18:51:10'),(32,23,37,'2023-06-13 19:28:06');
 /*!40000 ALTER TABLE `koleksioni` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,7 +125,7 @@ CREATE TABLE `librat` (
   CONSTRAINT `librat_ibfk_1` FOREIGN KEY (`zhanri`) REFERENCES `zhanri` (`id`),
   CONSTRAINT `librat_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`),
   CONSTRAINT `librat_ibfk_3` FOREIGN KEY (`pershkrimi_id`) REFERENCES `pershkrimi` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +134,7 @@ CREATE TABLE `librat` (
 
 LOCK TABLES `librat` WRITE;
 /*!40000 ALTER TABLE `librat` DISABLE KEYS */;
-INSERT INTO `librat` VALUES (35,'hello',312312,'Bini','4321',20,3,1,'1',1,35),(37,'asdasd',12312,'dasda','1233',2,2,1,'11',1,37),(38,'dasd',1,'dasd','1wds',1,1,1,'1',1,50),(49,'hello',213124234,'dasd','1993',1,1,1,'1',1,50),(60,'sdasd',123123,'dasda','1',1,1,1,'1',1,50),(86,'qa u bo bre	',123442,'1','1234',1,1,1,'1',1,1),(95,'Plaku the lumi',122112,'Gjoni','1',1,1,1,'1',1,1),(96,'antoni',4356,'toni','1',1,1,1,'1',1,56);
+INSERT INTO `librat` VALUES (35,'hello',312312,'Bini','4321',20,1,1,'1',1,35),(37,'asdasd',12312,'dasda','1233',2,2,1,'11',1,37),(38,'dasd',1,'dasd','1wds',1,1,1,'1',1,50),(49,'hello',213124234,'dasd','1993',1,1,1,'1',1,50),(60,'sdasd',123123,'dasda','1',1,1,1,'1',1,50),(122,'1',6,'1','3',1,1,1,'3',1,72),(143,'123132',12313224,'123132','1234',123132,1,1,'12313224',1,82),(151,'1222',12222,'1222','1222',1222,1,1,'1222',1,87),(154,'34',22222222232,'43','4343',3,1,1,'43',1,88);
 /*!40000 ALTER TABLE `librat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +149,7 @@ CREATE TABLE `pershkrimi` (
   `id` int NOT NULL AUTO_INCREMENT,
   `texti` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +158,7 @@ CREATE TABLE `pershkrimi` (
 
 LOCK TABLES `pershkrimi` WRITE;
 /*!40000 ALTER TABLE `pershkrimi` DISABLE KEYS */;
-INSERT INTO `pershkrimi` VALUES (1,'\"Plaku dhe Deti\" nga Hemingway është një roman emocionues për Santiago, një plak peshkatar që përballet me sfida të mëdha në det. Duke treguar guxim dhe vendosmëri për të fituar, ai shfaq mesazhin e rezistencës dhe besimit në ndeshjen me fatkeqësitë e jetës.'),(2,'\"Vdekja Aniles\" nga Ismail Kadare është një roman që ndjek historinë e Aniles, një vajzë e re që përjeton një dashuri të ndaluar dhe sfida të mëdha në shoqërinë e saj të kufizuar nga ligjet dhe traditat.'),(3,'\"Fletorja Romance\" nga Nicholas Sparks është një roman romantik që rrëfen historinë e dy personazheve që përballen me pengesa dhe sfida në dashurinë e tyre, duke ndërtuar një lidhje të fuqishme emocionale.'),(4,'\"I dashur Xhon\" nga Jane Austen është një roman klasik që përshkruan historinë e një vajze të ri të quajtur Xhon, e cila përjeton aventurat dhe konfuzionet e dashurisë dhe martesës në shoqërinë e kohës së saj.'),(5,'\"Prilli i thyer\" nga F. Scott Fitzgerald është një roman simbolik që ndjek historinë e Jay Gatsby, një personazh misterioz që përpiqet të rikthejë dashurinë e humbur dhe të arrin suksesin në shoqërinë e pasluftës.'),(6,'\"Gjenerali i ushtrisë së vdekur\" nga Ismail Kadare është një roman historik që rrëfen historinë e një gjenerali të vdekur që kthehet për të udhëhequr një ushtri të vdekur në betejën e fundit të tij, përballë çlirimit të vendit.'),(7,'\"Sikur të isha djale\" nga Gjergj Fishta është një roman epik që tregon historinë e Skënderbeut, heroit kombëtar shqiptar, duke e shfaqur atë nëpërmjet aventurave dhe betejave të tij heroike kundër pushtuesve osmanë.'),(8,'\"Histori e Skënderbeut\" nga Marin Barleti është një roman historik që paraqet historinë e jetës dhe luftës së heroit shqiptar Gjergj Kastrioti Skënderbeu, duke treguar rëndësinë e tij në mbrojtjen e vendit dhe kulturës shqiptare.'),(9,'\"Bagëti e Bujqësi\" nga George Orwell është një roman satirik që rrëfen historinë e një fermeri të quajtur Jones, i cili përjeton ndryshime politike dhe ndërlikime në fermën e tij, përfaqësuar nga personazhet e kafshëve antropomorfike.'),(10,'\"Shkëlqimi dhe rënia e shokut Zylo\" nga Gabriel García Márquez është një roman magjikorealist që përshkruan historinë e shokut Zylo, një personazh misterioz që udhëton nëpër kohë dhe hapësirë, duke përjetuar aventura fantastike.'),(11,'\"Komisari Memo\" nga Rexhep Qosja është një roman që rrëfen historinë e komisarit Memoll Dibran, një personazh i vendosur për të zbuluar të vërtetën pas një seri vrasjesh dhe konspiracionesh në një qytet të vogël shqiptar.'),(22,'\"ahshsahdasdhas\"'),(23,'hello'),(24,'hello'),(35,'Pse osht liber'),(36,'\"I dashur Xhon\" nga Jane Austen është një roman klasik që përshkruan historinë e një vajze të ri të quajtur Xhon, e cila përjeton aventurat dhe konfuzionet e dashurisë dhe martesës në shoqërinë e kohës së saj.'),(37,'Pse osht liber kaq e keqe'),(38,'\"Fletorja Romance\" nga Nicholas Sparks është një roman romantik që rrëfen historinë e dy personazheve që përballen me pengesa dhe sfida në dashurinë e tyre, duke ndërtuar një lidhje të fuqishme emocionale.'),(39,'\"Vdekja Aniles\" nga Ismail Kadare është një roman që ndjek historinë e Aniles, një vajzë e re që përjeton një dashuri të ndaluar dhe sfida të mëdha në shoqërinë e saj të kufizuar nga ligjet dhe traditat.'),(40,'Hello'),(41,'\"Vdekja Aniles\" nga Ismail Kadare është një roman që ndjek historinë e Aniles, një vajzë e re që përjeton një dashuri të ndaluar dhe sfida të mëdha në shoqërinë e saj të kufizuar nga ligjet dhe traditat.'),(42,'Hello'),(43,'Hello'),(44,'1dasd'),(45,'dasdad'),(46,'dads'),(47,'1dasd'),(48,'dasd'),(49,'dasda'),(50,'Pse osht liber'),(51,'Qa osht'),(52,'Qa osht'),(53,'Qa osht'),(54,'1'),(55,'1'),(56,'po jo'),(57,'Nje liber per te gjithe');
+INSERT INTO `pershkrimi` VALUES (1,'\"Plaku dhe Deti\" nga Hemingway është një roman emocionues për Santiago, një plak peshkatar që përballet me sfida të mëdha në det. Duke treguar guxim dhe vendosmëri për të fituar, ai shfaq mesazhin e rezistencës dhe besimit në ndeshjen me fatkeqësitë e jetës.'),(2,'\"Vdekja Aniles\" nga Ismail Kadare është një roman që ndjek historinë e Aniles, një vajzë e re që përjeton një dashuri të ndaluar dhe sfida të mëdha në shoqërinë e saj të kufizuar nga ligjet dhe traditat.'),(3,'\"Fletorja Romance\" nga Nicholas Sparks është një roman romantik që rrëfen historinë e dy personazheve që përballen me pengesa dhe sfida në dashurinë e tyre, duke ndërtuar një lidhje të fuqishme emocionale.'),(4,'\"I dashur Xhon\" nga Jane Austen është një roman klasik që përshkruan historinë e një vajze të ri të quajtur Xhon, e cila përjeton aventurat dhe konfuzionet e dashurisë dhe martesës në shoqërinë e kohës së saj.'),(5,'\"Prilli i thyer\" nga F. Scott Fitzgerald është një roman simbolik që ndjek historinë e Jay Gatsby, një personazh misterioz që përpiqet të rikthejë dashurinë e humbur dhe të arrin suksesin në shoqërinë e pasluftës.'),(6,'\"Gjenerali i ushtrisë së vdekur\" nga Ismail Kadare është një roman historik që rrëfen historinë e një gjenerali të vdekur që kthehet për të udhëhequr një ushtri të vdekur në betejën e fundit të tij, përballë çlirimit të vendit.'),(7,'\"Sikur të isha djale\" nga Gjergj Fishta është një roman epik që tregon historinë e Skënderbeut, heroit kombëtar shqiptar, duke e shfaqur atë nëpërmjet aventurave dhe betejave të tij heroike kundër pushtuesve osmanë.'),(8,'\"Histori e Skënderbeut\" nga Marin Barleti është një roman historik që paraqet historinë e jetës dhe luftës së heroit shqiptar Gjergj Kastrioti Skënderbeu, duke treguar rëndësinë e tij në mbrojtjen e vendit dhe kulturës shqiptare.'),(9,'\"Bagëti e Bujqësi\" nga George Orwell është një roman satirik që rrëfen historinë e një fermeri të quajtur Jones, i cili përjeton ndryshime politike dhe ndërlikime në fermën e tij, përfaqësuar nga personazhet e kafshëve antropomorfike.'),(10,'\"Shkëlqimi dhe rënia e shokut Zylo\" nga Gabriel García Márquez është një roman magjikorealist që përshkruan historinë e shokut Zylo, një personazh misterioz që udhëton nëpër kohë dhe hapësirë, duke përjetuar aventura fantastike.'),(11,'\"Komisari Memo\" nga Rexhep Qosja është një roman që rrëfen historinë e komisarit Memoll Dibran, një personazh i vendosur për të zbuluar të vërtetën pas një seri vrasjesh dhe konspiracionesh në një qytet të vogël shqiptar.'),(22,'\"ahshsahdasdhas\"'),(23,'hello'),(24,'hello'),(35,'Pse osht liber21321312'),(36,'\"I dashur Xhon\" nga Jane Austen është një roman klasik që përshkruan historinë e një vajze të ri të quajtur Xhon, e cila përjeton aventurat dhe konfuzionet e dashurisë dhe martesës në shoqërinë e kohës së saj.'),(37,'Pse osht liber kaq e keqe'),(38,'\"Fletorja Romance\" nga Nicholas Sparks është një roman romantik që rrëfen historinë e dy personazheve që përballen me pengesa dhe sfida në dashurinë e tyre, duke ndërtuar një lidhje të fuqishme emocionale.'),(39,'\"Vdekja Aniles\" nga Ismail Kadare është një roman që ndjek historinë e Aniles, një vajzë e re që përjeton një dashuri të ndaluar dhe sfida të mëdha në shoqërinë e saj të kufizuar nga ligjet dhe traditat.'),(40,'Hello'),(41,'\"Vdekja Aniles\" nga Ismail Kadare është një roman që ndjek historinë e Aniles, një vajzë e re që përjeton një dashuri të ndaluar dhe sfida të mëdha në shoqërinë e saj të kufizuar nga ligjet dhe traditat.'),(42,'Hello'),(43,'Hello'),(44,'1dasd'),(45,'dasdad'),(46,'dads'),(47,'1dasd'),(48,'dasd'),(49,'dasda'),(50,'Pse osht liber'),(51,'Qa osht'),(52,'Qa osht'),(53,'Qa osht'),(54,'1'),(55,'1'),(56,'po jo'),(57,'Nje liber per te gjithe'),(58,'abc,123'),(59,'abc,123'),(60,'abc,123'),(61,'abc,123'),(62,'abc,123'),(63,'abc,123'),(64,'abc,123'),(65,'abc,123'),(66,'abc,123'),(67,'abc,123'),(68,'qa ka qa ska'),(69,'1'),(70,'1'),(71,'1'),(72,'3'),(73,'1'),(74,'13'),(75,'6666'),(76,'12312349999'),(77,'12312349999'),(78,'12312349999'),(79,'5554'),(80,'13212321'),(81,'12313224'),(82,'12313224'),(83,'1222122212221222'),(84,'1222122212221222'),(85,'1222122212221222'),(86,'1222122212221222'),(87,'12221222122212221222122212221222122212221222'),(88,'434343');
 /*!40000 ALTER TABLE `pershkrimi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -255,4 +254,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-13  0:50:03
+-- Dump completed on 2023-06-13 20:37:32
