@@ -19,12 +19,12 @@ block content
                                 td= liber.autori
                                 td= liber.zhanri
                                 td
-                                    button.btn.btn-secondary( data-bs-toggle="modal" data-bs-target="#exampleModal" ) Faktura 
+                                    button.btn.btn-secondary( data-bs-toggle="modal" data-bs-target="#exampleModal" ) Faktura
                                     .modal.fade#exampleModal(tabindex="-1", aria-labelledby="exampleModalLabel", aria-hidden="true")
                                         .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
                                             .modal-content
                                                 .modal-header
-                                                    h5.modal-title#exampleModalLabel= "Fatura : "+ fatura_id
+                                                    h5.modal-title#exampleModalLabel= "Fatura : "+ liber.fatura_id
                                                     button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
                                                 .modal-body
                                                     p= "Blersi : "+liber.emrin +" "+liber.mbiemri
@@ -35,4 +35,4 @@ block content
                                                 .modal-footer
                                                     button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
                                 td
-                                    button.btn.btn-danger(onclick="fshij2("+liber.id+")")= liber.id
+                                    button.btn.btn-danger(onclick="fshij2("+liber.id+")") Anulo Blerjen

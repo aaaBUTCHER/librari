@@ -7,7 +7,7 @@ class BookCollection{
     }
 
     async getBookCollection(){
-        const query = 'SELECT k.id, u.id, l.id, l.titulli, l.autori,l.zhanri ,u.emrin, u.mbiemri FROM libraria.koleksioni k join userat u on k.userat_id=u.id join librat l on k.librat_id=l.id WHERE u.id = ?';
+        const query = 'SELECT k.id, u.id, l.id, l.titulli, l.pdf_link, l.autori,l.zhanri ,u.emrin, u.mbiemri FROM libraria.koleksioni k join userat u on k.userat_id=u.id join librat l on k.librat_id=l.id WHERE u.id = ?';
         const [results] = await conn.query(query, [this.userat_id]);
         return results;
     }

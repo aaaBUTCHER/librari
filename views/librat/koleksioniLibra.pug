@@ -19,7 +19,5 @@ include ../includes/navBar.pug
                                         td= liber.autori 
                                         td= liber.zhanri
                                         td 
-                                            button.btn.btn-secondary Lexo
-                                        td  
-                                            button.btn.btn-danger Shlyje
+                                            button.btn.btn-secondary(href= liber.pdf_link) Lexo
     include ../includes/footer.pug
