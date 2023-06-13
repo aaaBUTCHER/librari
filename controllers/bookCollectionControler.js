@@ -1,4 +1,5 @@
 const BookCollection = require('../models/bookCollection');
+const Librat = require('../models/libra');
 const bookCollectioon = new BookCollection(1);
 
 exports.getAllBookCollections= async (req, res)=>{
@@ -23,6 +24,11 @@ exports.getABookToCollection = async (req, res)=>{
 }
 
 exports.deleteABookCollection = async (req,res)=>{
-    const id=res.params.id
-    
-}
+    var errori='';
+    try{
+        await Librat.deletaABook(req.params.id);
+    }catch(err){
+        errori= err;
+    }
+    await res.render("dashboard/crudiPerLibra", {aaa1:  Librat.getAllBooks(), aaa2: Librat.getAllSelles(), isAuthenticated: req.session.isLoggedIn, err:errori});  
+} 

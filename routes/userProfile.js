@@ -6,6 +6,6 @@ const auth = require('../middleware/auth');
 router.get("/", auth.isAuth ,(req, res)=>{
 
     res.render("profili/profili",{user: req.session.user,  isAuthenticated: req.session.isLoggedIn, privilege:req.session.user.privilegji});
-
 });
+
 module.exports=router;

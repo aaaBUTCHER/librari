@@ -48,7 +48,7 @@ class Librat{
     const [results] = await conn.query(query, [id]);
     return results.affectedRows;
     }
-
+    
     static async getAllBooks(){
         try{
             const [row, field] = await  conn.query(`
@@ -62,13 +62,34 @@ class Librat{
         catch(err){
             console.log(err);
         }
-
     }
+
     static async updateBooks(updataParams){
         console.log(updataParams);
         const callProcedure = `CALL updateBooks(?, ?, ?, ?, ?, ?, ?)`;
         const result = await conn.execute(callProcedure, updataParams);
         return result;
+    }
+
+    //per Librat E bBlere
+    static async getAllSelles(){
+        try{
+            const [row, field] = await  conn.query(`
+            SELECT b.id, b.data_e_blerjes, u.emrin, u.mbiemri, l.cmimi, l.titulli, l.autori, l.zhanri, l.id as libra_id
+            FROM koleksioni b
+            JOIN userat u ON b.userat_id = u.id
+            JOIN librat l ON b.librat_id = l.id;`);
+            return row;
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    static async deletASale(id){
+        const query = 'DELETE FROM koleksioni WHERE id = ?';
+        const [results] = await conn.query(query, [id]);
+        return results.affectedRows;
     }
 }
 

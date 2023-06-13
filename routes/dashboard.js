@@ -5,7 +5,7 @@ const auth = require('../middleware/auth');
 const authSuper = require('../middleware/authSuper');
 
 router.get("/", auth.isAuth, authSuper.isAuthSuper ,async (req,res)=>{
-    res.render("dashboard/dashboard", {aaa1: await Librat.getAllBooks(), isAuthenticated: req.session.isLoggedIn, privilege:req.session.user.privilegji});
+    res.render("dashboard/dashboard", {aaa1: await Librat.getAllBooks(), aaa2: await Librat.getAllSelles(), isAuthenticated: req.session.isLoggedIn, privilege:req.session.user.privilegji});
 });
 
-module.exports=router;
+module.exports=router; 

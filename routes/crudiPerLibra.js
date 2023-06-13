@@ -9,6 +9,7 @@ const authSuper = require('../middleware/authSuper');
 router.get("/",auth.isAuth, authSuper.isAuthSuper, (req,res)=>{
     res.render("dashboard/crudiPerLibra", {isAuthenticated: req.session.isLoggedIn, privilege:req.session.user.privilegji});
 });
+
 router.get('/:id',auth.isAuth, authSuper.isAuthSuper ,bookProfileModule.getUpdateBookProfile);
 
 router.post('/updatebook', auth.isAuth, authSuper.isAuthSuper, bookProfileModule.updateAbook);

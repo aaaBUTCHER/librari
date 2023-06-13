@@ -59,6 +59,26 @@ function fshij(id){
         });
 }
 
+function fshij2(id){
+  fetch("2http://localhost:3000/blerjet/"+id, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => {
+      if (response.ok) {
+       window.location.reload();
+      } else {
+        // Handle error case
+        console.error('Delete request failed');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
 
 function edito(id){
   fetch("http://localhost:3000/book-profile/"+id, {

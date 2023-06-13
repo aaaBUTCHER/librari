@@ -15,7 +15,7 @@ block content
                                 th
                         tbody
                             each liber in aaa1
-                                tr 
+                                tr  
                                     td= liber.id
                                     td= liber.isbn 
                                     td= liber.titulli 
@@ -23,7 +23,7 @@ block content
                                     td= liber.zhanri
                                     td(style="max-width:200px !important;")= liber.texti
                                     td= liber.viti_botimit
-                                    td 
+                                    td  
                                         a.btn.btn-secondary(href="/crudiPerLibra/"+liber.id+"") Edito
                                     td 
                                         button#fshij.btn.btn-danger(onclick="fshij("+liber.id+")") Delete
