@@ -12,14 +12,12 @@ include ../includes/navBar.pug
                                     th Autori 
                                     th Zhanrri
                             tbody
-                                each liber in librrrr
+                                each liber in librat
                                     tr 
                                         td= liber.id
                                         td= liber.titulli 
                                         td= liber.autori 
                                         td= liber.zhanri
                                         td 
-                                            button.btn.btn-secondary Lexo
-                                        td 
-                                            button.btn.btn-danger Shlyje
+                                            button.btn.btn-secondary(href= liber.pdf_link) Lexo
     include ../includes/footer.pug

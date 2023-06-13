@@ -5,32 +5,34 @@ block content
                 table.table.text-center
                     thead.thead-dark
                         tr
+                            th id
                             th User
                             th Titulli
                             th Autori
                             th Zhanrri
                     tbody
-                        each liber in aaa1
+                        each liber in aaa2
                             tr
-                                td= liber.emriMbiemri
+                                td= liber.id
+                                td= liber.emrin +" "+liber.mbiemri
                                 td= liber.titulli
                                 td= liber.autori
                                 td= liber.zhanri
                                 td
-                                    button.btn.btn-secondary( data-bs-toggle="modal" data-bs-target="#exampleModal" ) Faktura 
+                                    button.btn.btn-secondary( data-bs-toggle="modal" data-bs-target="#exampleModal" ) Faktura
                                     .modal.fade#exampleModal(tabindex="-1", aria-labelledby="exampleModalLabel", aria-hidden="true")
                                         .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
                                             .modal-content
                                                 .modal-header
-                                                    h5.modal-title#exampleModalLabel "Fatura : "+ fatura_id
+                                                    h5.modal-title#exampleModalLabel= "Fatura : "+ liber.fatura_id
                                                     button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
                                                 .modal-body
-                                                    p "Blersi : "+
-                                                    p "Shitsi : "+
-                                                    p "Data : "+
-                                                    p "Cmimi : "+
-                                                    p "Libra_id : "+
+                                                    p= "Blersi : "+liber.emrin +" "+liber.mbiemri
+                                                    p Shitsi : LibrariaJONE
+                                                    p= "Data : "+ liber.data_e_blerjes
+                                                    p= "Cmimi : "+ liber.cmimi
+                                                    p= "Libra_id : "+ liber.libra_id
                                                 .modal-footer
                                                     button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
                                 td
-                                    button.btn.btn-danger Anulo Blerjen
+                                    button.btn.btn-danger(onclick="fshij2("+liber.id+")") Anulo Blerjen
