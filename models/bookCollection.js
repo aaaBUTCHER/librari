@@ -19,9 +19,9 @@ class BookCollection{
     }
 
     static async deletABookCollection(book_id){
-        const query = 'DELETE FROM koleksioni WHERE id = ?';
-        const [results] = await conn.query(query, [id]);
-        return results.affectedRows;
+        const query = 'DELETE FROM libraria.koleksioni WHERE id = ?';
+        const [results] = await conn.query(query, [book_id]);
+        return results;
     }
 }
 

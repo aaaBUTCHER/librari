@@ -12,6 +12,7 @@ const about=require("./routes/about");
 const userProfile=require("./routes/userProfile");
 const logIn = require("./routes/login");
 const register = require('./routes/register');
+const blerjet = require("./routes/blerjet");
 const session = require('express-session');
 const bodyParser = require('body-parser');
 
@@ -44,6 +45,7 @@ app.use((req, res, next)=>{
 })
 app.use('/register', register);
 app.use("/log-in", logIn);
+app.use("/blerjet", blerjet);
 app.use("/", homepage);
 app.use("/book-collection", bookCollection);
 app.use('/about', about);
