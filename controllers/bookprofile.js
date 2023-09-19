@@ -115,7 +115,7 @@ exports.updateAbook = async (req, res) => {
     const titulli = req.body.titulli;
     const autori = req.body.autori;
     const viti_botimit = req.body.viti_botimit;
-    const zhaner = req.body.zhaner;
+    const zhaner = req.body.zhanri;
     const cmimi = req.body.cmimi;
     const pershkrimi = req.body.pershkrimi;
     const bookArray = [id, titulli, autori, viti_botimit, cmimi, zhaner, pershkrimi];
