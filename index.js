@@ -15,6 +15,9 @@ const register = require('./routes/register');
 const blerjet = require("./routes/blerjet");
 const session = require('express-session');
 const bodyParser = require('body-parser');
+//mbrojtjeShtator
+const ndertesa = require('./routes/ndertesaRout');
+const ashencori = require('./routes/ashencoriRout');
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -54,6 +57,10 @@ app.use('/dashboard', dashboard);
 app.use("/crudiPerLibra", crudiPerLibra);
 app.use('/libratEBlere', libratEBlere);
 app.use("/user-profile", userProfile);
+      //mbrojtjeShtator
+        app.use("/ndertesa", ndertesa);
+        app.use("/ashencori", ashencori);
+
 
 //midleware per err
 app.use((req, res, next)=>{

@@ -23,6 +23,10 @@ html
                                 - for(let element in navBarObj)
                                     li.nav-item 
                                         a(aria-current="page", href=(element)).nav-link #{navBarObj[element]}
+                            li.nav-item 
+                                a(aria-current="page", href="/ndertesa").nav-link Ndertesa
+                            li.nav-item 
+                                a(aria-current="page", href="/ashencori").nav-link Ashencori
                             if(isAuthenticated===true && privilege==2)        
                                 li.nav-item 
                                     a(aria-current="page", href="/dashboard").nav-link Admin Paneli

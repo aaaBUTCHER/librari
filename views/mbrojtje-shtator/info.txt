@@ -1,0 +1,51 @@
+Krijo tablat
+
+Ndertesa212261491
+me andributet
+ID (autoincrement)
+Emri212261491 
+DataPT (data duhet me u ru qysh e shkrujm na qe e zgjedhim permes kalendarit ne front)
+
+Ashencori212261491
+me andtributet
+id(munehs autoincrement)
+Emertimi212261491
+NderteSaID *(e cila e lidh me tabelen ndertesa)
+
+Krijoni FrontEnd (nje faqe)
+ku mund te shikoni Tabelen Ndertesa
+*(ni front ku mujna me pa tabeln kejt qka ka)
+mundesin per te shtuar Ndertes te re permes FrontEnd
+mundesin per ta edituar Ndertes permes FrontEnd
+mundesin per ta shly nje Ndertes permes frontEnd
+#{
+    kur insertojm daten 
+    duhet te na shfaqetr nje kalendar te zghedhim daten
+    (jo ta shkruajm manualisht)
+}
+
+Krijoni FrontEnd (nje faqe)
+ku mund te shikoni Tabelen Ashencori
+*(ni front ku mujna me pa tabeln kejt qka ka)
+mundesin per te shtuar ashencor te re permes FrontEnd
+mundesin per ta edituar Ashencor permes FrontEnd
+mundesin per ta shly ashencor permes frontEnd
+#{
+    kur editojm ashencorin 
+    tek pjesa e NdertesaID duhet ti shhim nje dropDown meny 
+    e cila na i shfaqe vetem Ndertesat qe ekzistojn 
+}
+
+
+
+me i pa ndertesat == true;
+me i shu ndertesat == treu;
+me i fshi ndertesat == treu;
+me i editu ndertesat == treu;
+
+me i pa ashencoret == true;
+me i shtu ashencoret == treu;
+me i fshi ashencoret == true;
+me i editu ashencoret == true;
+
+kur shtoj ashencor te zgjedhim ndertesen me dropdownmenY: JO veq i domit mu kna i ban qeto per 1OREGJYS
