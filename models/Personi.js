@@ -2,27 +2,28 @@ const conn = require("../util/db");
 
 class Personi{
     constructor(e, m, b){
-        this.emri = e;
-        this.mbiemri = m;
+        this.emri51835 = e;
+        this.mbiemri51835 = m;
         this.bankaid = b
     }
 
     //
-    async shtoNjeAshencor(){
-        const query = 'INSERT INTO libraria.ashencori212261491 SET ?';
+    async shtoNjePerson(){
+        const query = 'INSERT INTO libraria.personi51835 SET ?';
         const [results] = await conn.query(query, this);
         return results;
     }
 
-    static async hekeNjeAshencor(id){
-        const query = 'DELETE  FROM libraria.ashencori212261491 WHERE id = ?';
+    static async hekeNjePerson(id){
+        const query = 'DELETE  FROM libraria.personi51835 WHERE id51835 = ?';
+        console.log("2");
         const [results] = await conn.query(query, [id]);
         return results.affectedRows;
     }
 
-    static async thirriKejtSHOQETjoAshencortThirri(){
+    static async thirriKejtPersonat(){
         try{
-            const [row, field] = await  conn.query(`SELECT * FROM libraria.ashencori212261491;`);
+            const [row, field] = await  conn.query(`SELECT * FROM libraria.personi51835;`);
             return row;
         }
         catch(err){
@@ -30,8 +31,8 @@ class Personi{
         }
     }
 
-    static async thirreQetAshencor(id){
-        const query = 'SELECT * FROM libraria.ashencori212261491 WHERE id = ?';
+    static async thirreQetPerson(id){
+        const query = 'SELECT * FROM libraria.personi51835 WHERE id51835 = ?';
         const results = await conn.query(query, [id]);
         return results;
     }
@@ -39,10 +40,10 @@ class Personi{
 
     //modifikojm ne fund ubdate
     // me chatGPT
-    async updateAshencori(id) {
+    async updatePersoni(id) {
         try {
-            const query = 'UPDATE libraria.ashencori212261491 SET Emertimi212261491 = ?, NderteSaID = ? WHERE id = ?';
-            const [results] = await conn.query(query, [this.emertimi212261491, this.nderteSaId, id]);
+            const query = 'UPDATE libraria.personi51835 SET emri51835 = ?, mbiemri51835 = ?, bankaid = ? WHERE id51835 = ?';
+            const [results] = await conn.query(query, [this.emri51835, this.mbiemri51835, this.bankaid, id]);
             if (results.affectedRows > 0) {
                 return true; // Update was successful
             } else {

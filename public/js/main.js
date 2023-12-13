@@ -129,3 +129,23 @@ function edito(id){
         });
     }
     
+    function fshijPersonin(id){
+      fetch("http://localhost:3000/personi/"+id, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          console.log(response)
+          // if (response.ok) {
+          window.location.reload()
+          // } else {
+          //   // Handle error case
+          //   console.error('Delete request failed');
+          // }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }

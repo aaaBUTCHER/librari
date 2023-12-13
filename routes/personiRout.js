@@ -5,14 +5,14 @@ const router=express.Router();
 
 const personiCon = require("../controllers/personiCon");
 
-//router.get("/", ndertesaCon.merriTeGjithaNdertesat);
+router.get("/",auth.isAuth, authSuper.isAuthSuper , personiCon.merriTeGjithePersonat);
 
-//router.get("/:id", ndertesaCon.merreNjeNdertes);
+router.get("/:id",auth.isAuth, authSuper.isAuthSuper , personiCon.merreNjePerson);
 
-//router.post("/", ndertesaCon.krijoNjeNdertes);
+router.post("/",auth.isAuth, authSuper.isAuthSuper , personiCon.krijoNjePerson);
 
-//router.delete("/:id", ndertesaCon.fshijeNjeNdertes);
+router.delete("/:id",auth.isAuth, authSuper.isAuthSuper , personiCon.fshijeNjePerson);
 
-//router.post("/:id", ndertesaCon.updateNdertesa);
+router.post("/:id",auth.isAuth, authSuper.isAuthSuper , personiCon.updatePersoni);
 
 module.exports=router;

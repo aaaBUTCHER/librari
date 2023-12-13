@@ -4,15 +4,15 @@ const authSuper = require('../middleware/authSuper');
 const router=express.Router();
 const bankaCon = require("../controllers/bankaCon");
 //auth.isAuth, authSuper.isAuthSuper ,
-router.get("/",bankaCon.merriTeGjithaBankat);
+router.get("/",auth.isAuth, authSuper.isAuthSuper ,bankaCon.merriTeGjithaBankat);
 
-router.post("/", bankaCon.shtoNjeBank);
+router.post("/", auth.isAuth, authSuper.isAuthSuper , bankaCon.shtoNjeBank);
 
-router.get("/:id", bankaCon.merreNjeBanke);
+router.get("/:id",auth.isAuth, authSuper.isAuthSuper , bankaCon.merreNjeBanke);
 
-router.post("/:id", bankaCon.perditsoBanken);
+router.post("/:id",auth.isAuth, authSuper.isAuthSuper , bankaCon.perditsoBanken);
 
-router.delete("/:id", bankaCon.fshijeBanken);
+router.delete("/:id",auth.isAuth, authSuper.isAuthSuper , bankaCon.fshijeBanken);
 
 
 module.exports=router;

@@ -23,10 +23,6 @@ html
                                 - for(let element in navBarObj)
                                     li.nav-item 
                                         a(aria-current="page", href=(element)).nav-link #{navBarObj[element]}
-                            li.nav-item 
-                                    a(aria-current="page", href="/banka").nav-link Banka
-                            li.nav-item 
-                                    a(aria-current="page", href="/personi").nav-link Personi
                             if(isAuthenticated===true && privilege==2)     
                                 li.nav-item 
                                     a(aria-current="page", href="/ndertesa").nav-link Ndertesa
@@ -34,6 +30,10 @@ html
                                     a(aria-current="page", href="/ashencori").nav-link Ashencori   
                                 li.nav-item 
                                     a(aria-current="page", href="/dashboard").nav-link Admin Paneli
+                                li.nav-item 
+                                    a(aria-current="page", href="/banka").nav-link Banka
+                                li.nav-item 
+                                        a(aria-current="page", href="/personi").nav-link Personi
                             li.nav-item.dropdown 
                                 a(role="button", data-bs-toggle="dropdown", aria-expanded="false").nav-link.dropdown-toggle#navbarDropdown
                                     img(src="img/profile.png", height="20px", width="20px", alt="Profile Logo", style="border-radius: 50%")
@@ -43,7 +43,7 @@ html
                                     li
                                         if(isAuthenticated===true)
                                             form(action='/log-in/logout', method='POST')
-                                                button(type="submit").dropdown-item Sing out
+                                                button(type="submit").dropdown-item Sign out
                                         else 
                                             a(href="/log-in").dropdown-item Log In 
         block foot
