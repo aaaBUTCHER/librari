@@ -1,0 +1,45 @@
+include ../includes/navBar.pug
+    p bankaa
+
+    block content
+        section
+            .div(style="min-height:75%;").container-100
+                .row.m-0.d-flex.justify-content-center
+                    .col-xl-6.col-sm-12.justify-content-center.align-items-center.p-3.m-3
+                        table.table 
+                            thead.thead-dark
+                                tr
+                                    th Id
+                                    th Emri212261491 
+                                    th DataPT
+                            tbody
+                                each n in banka
+                                    - console.log(n)
+                                    tr 
+                                        td= n.id212261491
+                                        td= n.emri212261491
+                                        td 
+                                            a(href="/banka/"+n.id212261491).btn.btn-secondary Edito
+                                        td 
+                                            button.btn.btn-danger(onclick="fshijBanken("+n.id212261491+")") Fshije
+                .bg-secondary.p-5.pb-1.pt-1(style="border-radius: 10px; margin-top: 85px !important;").m-3.mb-5.mt-5
+                    h1.m-4.text-center.mt-4 Shto Bank
+                    .justify-content-center
+                        form(method="POST" action="/banka")
+                            table.table
+                                tbody
+                                    tr
+                                        td
+                                            .form-group
+                                                label(for="emri212261491") Emri
+                                                    input#isbn.form-control(name="emri212261491", type="text")
+                                        tr.m-1(style ="border: 1px white !important")
+                                            td(colspan="4", style =" border-bottom: none;")
+                                                .form-group
+                                                    button.btn.btn-primary.m-2(type="submit") Shto Banken
+                                        .alert-danger.m-1(role="alert", style="display:"+errorActive+"; border-radius: 7px;",)= err
+    include ../includes/footer.pug
+
+//pjesen e tabeles se rendijes se dhenave e copjova nga koleksioniLibra.pug
+//pjesen e shtimit te nje ndertese e copjova nga crudiPerLibra.pug
+include ../includes/footer.pug
