@@ -13,9 +13,11 @@ include ../includes/navBar.pug
                             h4.m-3.bg-light.p-4(style="border-radius: 5px;") Emertimi
                                 br
                                 input(type="text", name='emertimi212261491', value=ashencori.Emertimi212261491, placeholder=ashencori.Emertimi212261491)
-                            h4.m-3.bg-light.p-4(style="border-radius: 5px;") Ndertesa ID
-                                br
-                                input(type="text", name='nderteSaID', value=ashencori.NderteSaID, placeholder=ashencori.NderteSaID)
+                            h4 ndertesa 
+                                label(for="nderteSaID") Ndertesa ID
+                                    select#nderteSaID.form-control(name="nderteSaID")
+                                        each ndertesa in ndertesat
+                                            option(value=ndertesa.ID)= ndertesa.Emri212261491
                             p.m-3.bg-light.p-3(style="border-radius: 5px;")
                                 input(type="submit", value='Edito').btn.btn-primary
     include ../includes/footer.pug

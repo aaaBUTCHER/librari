@@ -22,6 +22,7 @@ exports.merreNjeAshencor = async (req, res) => {
         res.render("mbrojtje-shtator/ashencoriEditView", {
             title: "Ashencori",
             ashencori: formattedData,
+            ndertesat: await Ndertesa.thirriKejtSHOQETjoNdertesatThirri(),
             isAuthenticated: req.session.isLoggedIn,
             privilege: req.session.user.privilegji,
         });
