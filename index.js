@@ -21,6 +21,8 @@ const ashencori = require('./routes/ashencoriRout');
 //mbrojtjeQershor
 const personi = require('./routes/personiRout');
 const banka = require("./routes/bankaRout");
+//mbrojtjeNentor
+const planetet = require('./routes/planetetRout');
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -66,6 +68,8 @@ app.use("/user-profile", userProfile);
       //mbrojtjeQershor
         app.use("/personi", personi);
         app.use("/banka", banka);
+      //mbrojtjeNentor
+        app.use("/planetet", planetet);
 
 //midleware per err
 app.use((req, res, next)=>{
