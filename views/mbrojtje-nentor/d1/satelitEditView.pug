@@ -1,0 +1,30 @@
+// pe marrum frontin hazer
+//se ka than muni me ba kopy paste qka doni projekt tjuv
+//inshaAllah sna qet problem per qeto folderat e mbrojtjeve te kalume 
+
+include ../../includes/navBar.pug
+    block head 
+        link(rel='stylesheet', href='/css/navBar.css')
+    block content
+        section(style="margin-bottom : 400 px !important;")
+            .container(style="border-radius: 20px; background-color :#e2e8f0; !important;").p-5.mt-5.text-center.mb-5
+                .row.mt-5.mb-5.justify-content-center.text-center(style="background-color :#e2e8f0; !important")
+                    .col-xl-6.mt-4.mb-3.text-center
+                        form(action='#', method='POST')
+                            h4.m-3.bg-light.p-4(style="border-radius: 5px;") satelitId
+                                br
+                                input(type="text", name='id', value=satelit.satelitId, readonly)
+                            h4.m-3.bg-light.p-4(style="border-radius: 5px;") name
+                                br
+                                input(type="text", name='name', value=satelit.name, placeholder=satelit.name)
+                            label(for="planetId") planetID
+                                select#planetId.form-control(name="planetId")
+                                    each p in planet
+                                        option(value=p.planetetId)= p.name
+                            p.m-3.bg-light.p-3(style="border-radius: 5px;")
+                                input(type="submit", value='Edito').btn.btn-primary
+    include ../../includes/footer.pug
+
+    //tashti duhet me ndryshu queri nven qe mi fshi mjav ba tru is deletet
+    //edhe tash ne frot me i shfaqe veq ato qe e kan me 0 false
+    //mujna me i ba me ksuht front ama mos o ma mir mi thirr prejdatabazes direkt veq ato qe jan false

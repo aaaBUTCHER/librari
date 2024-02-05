@@ -23,6 +23,7 @@ const personi = require('./routes/personiRout');
 const banka = require("./routes/bankaRout");
 //mbrojtjeNentor
 const planetet = require('./routes/planetetRout');
+const satelit = require('./routes/satelitiRout');
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -70,6 +71,7 @@ app.use("/user-profile", userProfile);
         app.use("/banka", banka);
       //mbrojtjeNentor
         app.use("/planetet", planetet);
+        app.use("/satelit", satelit);
 
 //midleware per err
 app.use((req, res, next)=>{
