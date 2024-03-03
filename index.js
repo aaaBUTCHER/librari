@@ -18,7 +18,9 @@ const bodyParser = require('body-parser');
     //ushtrimePerMbrojtje
         //detyra1
             const planet = require('./ushtrimePerMbrojtje/detyra1/planetRout');
-            const satellite = require('./ushtrimePerMbrojtje/detyra1/satelliteRout')
+            const satellite = require('./ushtrimePerMbrojtje/detyra1/satelliteRout');
+        //detyra2
+            const sculptor = require('./ushtrimePerMbrojtje/detyra2/sculptorRout');
         
 
 //Expressi the connfigat e tij
@@ -62,6 +64,8 @@ app.use("/user-profile", userProfile);
         //detyra1
             app.use("/planet", planet);
             app.use("/satellite", satellite);
+        //detyra2
+            app.use("/sculptor", sculptor)
 
 //midleware per err
 app.use((req, res, next)=>{
