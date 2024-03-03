@@ -15,6 +15,10 @@ const register = require('./routes/register');
 const blerjet = require("./routes/blerjet");
 const session = require('express-session');
 const bodyParser = require('body-parser');
+    //ushtrimePerMbrojtje
+        //detyra1
+            const planet = require('./ushtrimePerMbrojtje/detyra1/planetRout');
+            const satellite = require('./ushtrimePerMbrojtje/detyra1/satelliteRout')
         
 
 //Expressi the connfigat e tij
@@ -54,7 +58,10 @@ app.use('/dashboard', dashboard);
 app.use("/crudiPerLibra", crudiPerLibra);
 app.use('/libratEBlere', libratEBlere);
 app.use("/user-profile", userProfile);
-
+    //ushtrimePerMbrojtje
+        //detyra1
+            app.use("/planet", planet);
+            app.use("/satellite", satellite);
 
 //midleware per err
 app.use((req, res, next)=>{

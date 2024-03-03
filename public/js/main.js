@@ -59,3 +59,18 @@ function edito(id){
           console.error('Error:', error);
         });
 }
+
+function fshijSatellit(id){
+  fetch("http://localhost:3000/satellite/"+id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+         window.location.reload();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+}
