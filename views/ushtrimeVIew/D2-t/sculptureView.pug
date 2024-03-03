@@ -1,0 +1,55 @@
+include ../includes/navBar.pug
+    p hi-2 
+
+    block content
+    section
+        .div(style="min-height:75%;").container-100
+            .row.m-0.d-flex.justify-content-center
+                .col-xl-6.col-sm-12.justify-content-center.align-items-center.p-3.m-3
+                    table.table 
+                        thead.thead-dark
+                            tr
+                                th Id
+                                th title 
+                                th materiali
+                                th sculptorId
+                                th isdeleted
+                        tbody
+                            each o1 in objektet1
+                                tr 
+                                    td= o1.skulptureID
+                                    td= o1.title
+                                    td= o1.materiali
+                                    td= o1.sculptorId
+                                    td= o1.isDeleted
+                                    td 
+                                        a(href="/sculpture/"+o1.skulptureID).btn.btn-secondary Edito
+                                    td 
+                                        button.btn.btn-danger(onclick="fshijSculpture("+o1.skulptureID+")") Fshije
+                            each o1 in objektet2
+                                --console.log(o1)
+            .bg-secondary.p-5.pb-1.pt-1(style="border-radius: 10px; margin-top: 85px !important;").m-3.mb-5.mt-5
+                h1.m-4.text-center.mt-4 Shto
+                    .justify-content-center
+                        form(method="POST" action="/sculpture")
+                            table.table
+                                tbody
+                                    tr
+                                        td
+                                            .form-group
+                                                label(for="title") Titulli
+                                                    input#isbn.form-control(name="title", type="text")
+                                        td
+                                            .form-group
+                                                label(for="materiali") Materiali
+                                                     input#isbn.form-control(name="materiali", type="text")
+                                        td
+                                            .form-group
+                                                label(for="sculptorId") sculptorId
+                                                     select#planetId.form-control(name="sculptorId")
+                                                        each o2 in objektet2
+                                                            option(value=o2.id)= o2.name
+                                        tr.m-1(style ="border: 1px white !important")
+                                            td(colspan="4", style =" border-bottom: none;")
+                                                .form-group
+                                                    button.btn.btn-primary.m-2(type="submit") Shto 

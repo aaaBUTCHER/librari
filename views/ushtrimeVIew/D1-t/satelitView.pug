@@ -1,0 +1,50 @@
+include ../../includes/navBar.pug
+    p hi - Satelitet
+
+     section
+        .div(style="min-height:75%;").container-100
+            .row.m-0.d-flex.justify-content-center
+                .col-xl-6.col-sm-12.justify-content-center.align-items-center.p-3.m-3
+                    table.table 
+                        thead.thead-dark
+                            tr
+                                th Id
+                                th name 
+                                th planetId
+                                th isdeletet
+                        tbody
+                            each s in satelit
+                                tr 
+                                    td= s.satelitId
+                                    td= s.name
+                                    td= s.planetId
+                                    td= s.isDeletet
+                                    td 
+                                        a(href="/satelit/"+s.satelitId).btn.btn-secondary Edito
+                                    td 
+                                        button.btn.btn-danger(onclick="fshijSatelit("+s.satelitId+")") Fshije
+                                    //td 
+                                        button.btn.btn-secondary(href=#) Lexo ma von kta
+                                        spaskum pas nevoj mi shfaq hiq
+                                        veq me insertu paskum mujt me qit ama ja lajm qet posht  e permi i shohum qka ke
+            .bg-secondary.p-5.pb-1.pt-1(style="border-radius: 10px; margin-top: 85px !important;").m-3.mb-5.mt-5
+                h1.m-4.text-center.mt-4 Shto Planet
+                    .justify-content-center
+                        form(method="POST" action="/satelit")
+                            table.table
+                                tbody
+                                    tr
+                                        td
+                                            .form-group
+                                                label(for="name") Name
+                                                    input#isbn.form-control(name="name", type="text")
+                                        td
+                                            .form-group
+                                                label(for="planetId") planetID
+                                                     select#planetId.form-control(name="planetId")
+                                                        each p in planet
+                                                            option(value=p.planetetId)= p.name
+                                        tr.m-1(style ="border: 1px white !important")
+                                            td(colspan="4", style =" border-bottom: none;")
+                                                .form-group
+                                                    button.btn.btn-primary.m-2(type="submit") Shto Satelit
