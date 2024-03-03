@@ -12,6 +12,7 @@ class Users{
                     this.user_image=user_image;
                     this.bio=bio;
     }
+
     async createUser(){
         const hash=await bcrypt.hash(this.passwordi, 10)
         this.passwordi=hash;
@@ -47,6 +48,7 @@ class Users{
         this.passwordi=hash;
         console.log(this);
     }
+
     static async getAllUsers(){
         try{
             const [row, field] = await  conn.query(`
@@ -60,17 +62,34 @@ class Users{
 
     }
 
+    static async updateUserField(field, value, id){
 
+        console.log("hi1")
+        let fieldAvaliable = [ "emrin", "mbiemri", "email", "passwordi",  "bio" ];
+
+        if(!fieldAvaliable.includes(field)){
+            throw new Error(field + "  keq diqka nuk osht fush qe perfshihet- ose mund ta editosh ");
+        }
+
+        let user2 = new Users();
+        
+        let [result] = await user2.getUser(id);
+
+        if(!result.id){
+            throw new Error(user.id + "nuk ekziston ");
+        }
+        console.log("hi5")
+        try{
+           const query = 'UPDATE libraria.userat SET '+field+' = ? WHERE id = ?';
+            const [results] = await conn.query(query, [ value, id]);
+            return results;
+        }catch(err){
+            return err
+        }
+        
+        
+    }
 }
-
-
-// const hello= async ()=>{
-//     const [result]= await Users.getUserByEmail("c@c.c");
-
-//     console.log(result);
-// }
-
-// hello();
 
 
 module.exports = Users;

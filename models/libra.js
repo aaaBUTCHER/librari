@@ -21,10 +21,9 @@ class Librat{
             const [results] = await conn.query(query, this);
             return results;
     }
+    
     async createPershkrimi(id_pershkrimi ,pershkrimiText){
         const values=[id_pershkrimi,pershkrimiText];
-        //INSERT INTO table1 (column1, column2)
-        //VALUES (value1, value2);
         const query = 'INSERT INTO libraria.pershkrimi (id, texti) VALUES (?, ?)';
         const [results] = await conn.execute(query, values);
         return results;

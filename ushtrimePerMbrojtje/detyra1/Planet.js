@@ -8,7 +8,7 @@ class Planet{
 
     static async thirriKejtPrejDb(){ 
         try{                                                
-                                                                        //ndrroje ne fb leje Planet
+                                                                        //ndrroje ne db leje Planet
             const [row, field] = await  conn.query(`SELECT * FROM libraria.planetet61491;`);
             return row;
         }
