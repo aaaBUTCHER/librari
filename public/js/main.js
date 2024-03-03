@@ -74,3 +74,18 @@ function fshijSatellit(id){
         console.error('Error:', error);
       });
 }
+
+function fshijSculpture(id){
+  fetch("http://localhost:3000/sculpture/"+id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+         window.location.reload();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+}
