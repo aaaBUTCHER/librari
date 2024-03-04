@@ -1,10 +1,10 @@
 const conn = require("../util/db");
 
 class Player{
-    constructor(e, d, a, b){
-        this.name = e;
+    constructor(a, b, c, d){
+        this.name = a;
         this.number = b;
-        this.birthYear= a;
+        this.birthYear= c;
         this.teamId = d;
     }
 
