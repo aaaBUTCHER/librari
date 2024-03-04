@@ -25,15 +25,11 @@ html
                                         a(aria-current="page", href=(element)).nav-link #{navBarObj[element]}
                             if(isAuthenticated===true && privilege==2)     
                                 li.nav-item 
-                                    a(aria-current="page", href="/ndertesa").nav-link Ndertesa
+                                    a(aria-current="page", href="/dashboard").nav-link Admin Paneli 
                                 li.nav-item 
-                                    a(aria-current="page", href="/ashencori").nav-link Ashencori   
+                                    a(aria-current="page", href="/planet").nav-link Planeti
                                 li.nav-item 
-                                    a(aria-current="page", href="/dashboard").nav-link Admin Paneli
-                                li.nav-item 
-                                    a(aria-current="page", href="/banka").nav-link Banka
-                                li.nav-item 
-                                        a(aria-current="page", href="/personi").nav-link Personi
+                                        a(aria-current="page", href="/satellite").nav-link Sateliti
                             li.nav-item.dropdown 
                                 a(role="button", data-bs-toggle="dropdown", aria-expanded="false").nav-link.dropdown-toggle#navbarDropdown
                                     img(src="img/profile.png", height="20px", width="20px", alt="Profile Logo", style="border-radius: 50%")

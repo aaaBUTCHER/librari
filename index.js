@@ -19,8 +19,8 @@ const bodyParser = require('body-parser');
 const ndertesa = require('./routes/ndertesaRout');
 const ashencori = require('./routes/ashencoriRout');
 //mbrojtjeQershor
-const personi = require('./routes/personiRout');
-const banka = require("./routes/bankaRout");
+const satellite = require('./mbrojtjetest/satelliteRout');
+const planet = require('./mbrojtjetest/planetRout');
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -31,6 +31,9 @@ app.set("view engine","pug");
 app.use(express.json());
 //app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('libraria.db');
 
 //pathat kryesor
 app.use(
@@ -64,8 +67,9 @@ app.use("/user-profile", userProfile);
         app.use("/ndertesa", ndertesa);
         app.use("/ashencori", ashencori);
       //mbrojtjeQershor
-        app.use("/personi", personi);
-        app.use("/banka", banka);
+        app.use("/satellite", satellite);
+        app.use("/planet", planet);
+        
 
 //midleware per err
 app.use((req, res, next)=>{
@@ -74,3 +78,70 @@ app.use((req, res, next)=>{
 
 //eventListner
 app.listen(port,()=>console.log("Po nijn ne porten "+ port));
+
+
+
+// a) Insertimi i Skulptorit
+app.post('/skulptor', (req, res) => {
+  const { Name, BirthYear } = req.body;
+  const query = 'INSERT INTO Skulptor (Name, BirthYear, IsDeleted) VALUES (?, ?, ?)';
+  db.run(query, [Name, BirthYear, false], (err) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.send('Skulptori u shtua me sukses!');
+    }
+  });
+});
+
+// b) Insertimi i Skulptures
+app.post('/sculpture', (req, res) => {
+  const { Title, Material, SkulptorID } = req.body;
+  const query = 'INSERT INTO Sculpture (Title, Material, IsDeleted, SkulptorID) VALUES (?, ?, ?, ?)';
+  db.run(query, [Title, Material, false, SkulptorID], (err) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.send('Skulptura u shtua me sukses!');
+    }
+  });
+});
+
+// c) Fshirja e Skulptures
+app.delete('/sculpture/:id', (req, res) => {
+  const sculptureID = req.params.id;
+  const query = 'UPDATE Sculpture SET IsDeleted = true WHERE SculptureID = ?';
+  db.run(query, [sculptureID], (err) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.send('Skulptura u fshi me sukses!');
+    }
+  });
+});
+
+// d) Shfaqja e Skulpturave të ruajtura
+app.get('/sculptures', (req, res) => {
+  const query = 'SELECT * FROM Sculpture WHERE IsDeleted = false';
+  db.all(query, (err, sculptures) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.json(sculptures);
+    }
+  });
+});
+
+// e) Ndryshimi i të dhënave të Skulptures
+app.put('/sculpture/:id', (req, res) => {
+  const sculptureID = req.params.id;
+  const { Title, Material } = req.body;
+  const query = 'UPDATE Sculpture SET Title = ?, Material = ? WHERE SculptureID = ? AND IsDeleted = false';
+  db.run(query, [Title, Material, sculptureID], (err) => {
+    if (err) {
+      res.status(500).send(err.message);
+    } else {
+      res.send('Të dhënat e Skulpturës u ndryshuan me sukses!');
+    }
+  });
+});
