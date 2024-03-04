@@ -2,7 +2,7 @@ const Objekti1 = require("./Player");
 const Objekti2 = require("./Team");
 
 var titulli = "player";
-var redirect = "/player"
+
 exports.merriTeGjitha = async (req, res) => {
     res.render("ushtrimePerMbrojtjeView/detyra4/playerView", {
         title: titulli,
@@ -29,7 +29,7 @@ exports.shtoNje = async (req, res) => {
         console.log(err);
     }
 
-    res.redirect(redirect);
+    res.redirect("/player");
 }
 
 
@@ -41,5 +41,5 @@ exports.fshijeNje = async (req, res) => {
         console.log(err)
     }
     console.log("u fshi2");
-    res.redirect(redirect);
+    res.redirect("/player");
 }

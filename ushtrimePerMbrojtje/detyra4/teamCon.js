@@ -2,7 +2,6 @@ const Objekti1 = require("./Team");
 const Objekti2 = require("./Player");
 var titulli = "team";
 var redirect = "/team"
-
 exports.merriTeGjitha = async (req, res) => {
     console.log(await Objekti1.thirriKejtPrejDb())
     res.render("ushtrimePerMbrojtjeView/detyra4/teamView", {
