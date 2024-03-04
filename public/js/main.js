@@ -3,7 +3,7 @@ const { response } = require("express");
 async function updateEmrin(field, id) {
   let value = document.getElementById("emriRi");
 
-  let data = { field:field, value:value, id:id };
+  let data = { field:field, value:value.value, id:id };
   try {
     let hello = await fetch("http://localhost:3000/user-profile", {
       method: "PATCH",
@@ -23,7 +23,7 @@ async function updateEmrin(field, id) {
 async function updateMbiemrin(field, id) {
   let value = document.getElementById("mbiemriRi");
 
-  let data = { field:field, value:value, id:id };
+  let data = { field:field, value:value.value, id:id };
   try {
     let hello = await fetch("http://localhost:3000/user-profile", {
       method: "PATCH",
@@ -43,7 +43,7 @@ async function updateMbiemrin(field, id) {
 async function updateEmailin(field, id) {
   let value = document.getElementById("emailiRi");
 
-  let data = { field:field, value:value, id:id };
+  let data = { field:field, value:value.value, id:id };
   try {
     let hello = await fetch("http://localhost:3000/user-profile", {
       method: "PATCH",
@@ -63,7 +63,7 @@ async function updateEmailin(field, id) {
 async function updateBio(field, id) {
   let value = document.getElementById("bioRe");
 
-  let data = { field:field, value:value, id:id };
+  let data = { field:field, value:value.value, id:id };
   try {
     let hello = await fetch("http://localhost:3000/user-profile", {
       method: "PATCH",
