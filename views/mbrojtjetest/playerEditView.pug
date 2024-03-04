@@ -15,12 +15,12 @@ include ../includes/navBar.pug
                                 input(type="text", name='name', value=objektet1.name, placeholder=objektet1.name)
                             h4.m-3.bg-light.p-4(style="border-radius: 5px;") Number
                                 br
-                                input(type="text", name='number', value=objektet1.number, placeholder=objektet1.number)
+                                input(type="number", name='number', value=objektet1.number, placeholder=objektet1.number)
                             h4.m-3.bg-light.p-4(style="border-radius: 5px;") BirthYear
                                 br
-                                input(type="text", name='birthYear', value=objektet1.birthYear, placeholder=objektet1.birthYear)
+                                input(type="number", name='birthYear', value=objektet1.birthYear, placeholder=objektet1.birthYear)
                             label(for="teamId") teamId
-                                select#planetId.form-control(name="teamId")
+                                select#teamId.form-control(name="teamId")
                                     each o2 in objektet2
                                         option(value=o2.teamId)= o2.name
                             p.m-3.bg-light.p-3(style="border-radius: 5px;")

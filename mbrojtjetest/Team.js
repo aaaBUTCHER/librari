@@ -30,7 +30,7 @@ class Team{
 
     async updateNjePrejDb(id) {
         try {
-            const query = 'UPDATE libraria.team SET name = ? teamId = ?';
+            const query = 'UPDATE libraria.team SET name = ? where teamId = ?';
             const [results] = await conn.query(query, [this.name, id]);
 
             if (results.affectedRows > 0) {

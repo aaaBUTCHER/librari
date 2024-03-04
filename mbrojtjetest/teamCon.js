@@ -1,4 +1,5 @@
 const Team = require("./Team");
+const Player = require("./Player")
 
 exports.merriTeGjith = async (req, res) => {
     res.render("mbrojtjetest/teamView", {
@@ -41,6 +42,7 @@ exports.merreNje = async (req, res) => {
         res.render("mbrojtjetest/teamEditView", {
             title: "Titulli",
             objektet: formattedData,
+            objektet2: await Player.thirriKejtPrejDb(),
             isAuthenticated: req.session.isLoggedIn,
             privilege: req.session.user.privilegji,
         });
