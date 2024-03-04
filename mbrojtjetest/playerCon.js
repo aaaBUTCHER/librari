@@ -17,7 +17,7 @@ exports.krijoNje = async (req, res) => {
     const e = req.body.name;
     const b = req.body.number;
     const a = req.body.birthYear;
-    const d = req.body.planetId;
+    const d = req.body.teamId;
     const objektiRi = new Player(e, d, a, b);
 
     try {
@@ -75,17 +75,15 @@ exports.updateNje = async (req, res) => {
     const name = req.body.name;
     const number = req.body.number;
     const birthYear = req.body.birthYear;
-    const planetId = req.body.planetId;
+    const teamId = req.body.teamId;
 
     try {
-        const updated = new Satellite(name, number,birthYear, planetId);
+        const updated = new Player(name, number,birthYear, teamId);
         const result = await updated.updateNjePrejDb(id);
 
         if (result) {
-            // Redirect to a success page or updated "Ndertesa" record view
             res.redirect(`/player`);
         } else {
-            // Handle errors if the update was unsuccessful
             res.status(500).send("Update failed.");
         }
     } catch (error) {

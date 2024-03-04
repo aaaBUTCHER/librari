@@ -9,10 +9,10 @@ include ../includes/navBar.pug
                         form(action='#', method='POST')
                             h4.m-3.bg-light.p-4(style="border-radius: 5px;") TeamId
                                 br
-                                input(type="text", name='id', value=objektet1.teamId, readonly)
+                                input(type="text", name='id', value=objektet.teamId, readonly)
                             h4.m-3.bg-light.p-4(style="border-radius: 5px;") Name
                                 br
-                                input(type="text", name='name', value=objektet1.name, placeholder=objektet1.name)
+                                input(type="text", name='name', value=objektet.name, placeholder=objektet.name)
                             p.m-3.bg-light.p-3(style="border-radius: 5px;")
                                 input(type="submit", value='Edito').btn.btn-primary
 include ../includes/footer.pug

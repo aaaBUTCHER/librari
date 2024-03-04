@@ -27,7 +27,7 @@ class Player{
     }
 
     static async hekeNjePrejDb(id){
-        const query = 'UPDATE libraria.player WHERE playerId = ?';
+        const query = 'Delete from libraria.player WHERE playerId = ?';
         const [results] = await conn.query(query, [id]);
         return results.affectedRows;
     }
@@ -40,8 +40,8 @@ class Player{
     
     async updateNjePrejDb(id) {
         try {
-            const query = 'UPDATE libraria.player SET name = ?,number=?, birthYear=?, teamId = ? WHERE playerId = ?';
-            const [results] = await conn.query(query, [this.name, this.planetId, id]);
+            const query = 'UPDATE libraria.player SET name = ?,number=?, birthYear=? WHERE playerId = ?';
+            const [results] = await conn.query(query, [this.name,this.number,this.birthYear, id]);
 
             if (results.affectedRows > 0) {
                 return true; // Update was successful

@@ -28,7 +28,6 @@ exports.merreNje = async (req, res) => {
         const id = req.params.id;
         const n = await Team.thirreNjePrejDb(id);
 
-        //qet if me chatGPT
         let formattedData = null;
         if (Array.isArray(n) && n.length > 0) {
             const firstObject = n[0][0];
@@ -41,8 +40,7 @@ exports.merreNje = async (req, res) => {
         
         res.render("mbrojtjetest/teamEditView", {
             title: "Titulli",
-            objektet1: formattedData,
-            objektet2: await Team.thirriKejtPrejDb(),
+            objektet: formattedData,
             isAuthenticated: req.session.isLoggedIn,
             privilege: req.session.user.privilegji,
         });
@@ -61,10 +59,8 @@ exports.updateNje = async (req, res) => {
         const result = await updated.updateNjePrejDb(id);
 
         if (result) {
-            // Redirect to a success page or updated "Ndertesa" record view
             res.redirect(`/team`);
         } else {
-            // Handle errors if the update was unsuccessful
             res.status(500).send("Update failed.");
         }
     } catch (error) {

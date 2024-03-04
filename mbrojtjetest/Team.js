@@ -22,18 +22,24 @@ class Team{
         }
     }
 
+    static async thirreNjePrejDb(id){
+        const query = 'SELECT * FROM libraria.team WHERE teamId = ?';
+        const results = await conn.query(query, [id]);
+        return results;
+    }
+
     async updateNjePrejDb(id) {
         try {
             const query = 'UPDATE libraria.team SET name = ? teamId = ?';
             const [results] = await conn.query(query, [this.name, id]);
 
             if (results.affectedRows > 0) {
-                return true; // Update was successful
+                return true; 
             } else {
-                return false; // No records were updated
+                return false; 
             }
         } catch (error) {
-            throw error; // Propagate the error to the caller
+            throw error; 
         }
     }
 
