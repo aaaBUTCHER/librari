@@ -22,6 +22,9 @@ const bodyParser = require('body-parser');
         //detyra2
             const sculptor = require('./ushtrimePerMbrojtje/detyra2/sculptorRout');
             const sculpture = require('./ushtrimePerMbrojtje/detyra2/sculptureRout');
+        //detyra4
+            const team = require('./ushtrimePerMbrojtje/detyra4/teamRout');
+            const player = require('./ushtrimePerMbrojtje/detyra4/playerRout');
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -67,6 +70,9 @@ app.use("/user-profile", userProfile);
         //detyra2
             app.use("/sculptor", sculptor);
             app.use("/sculpture", sculpture);
+        //detyra4
+            app.use("/team", team);
+            app.use("/player", player);
 
 //midleware per err
 app.use((req, res, next)=>{
