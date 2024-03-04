@@ -3,10 +3,12 @@ const auth = require('../middleware/auth');
 const authSuper = require('../middleware/authSuper');
 const router=express.Router();
 
-const planetetCon = require("./planetCon");
+const teamCon = require("./teamCon");
 
-router.get("/", planetetCon.merriTeGjith);
+router.get("/", teamCon.merriTeGjith);
 
-router.post("/", planetetCon.krijoNje);
+router.post("/", teamCon.krijoNje);
+
+router.post("/:id", teamCon.updateNje);
 
 module.exports=router;

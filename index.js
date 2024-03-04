@@ -19,8 +19,8 @@ const bodyParser = require('body-parser');
 const ndertesa = require('./routes/ndertesaRout');
 const ashencori = require('./routes/ashencoriRout');
 //mbrojtjeQershor
-const satellite = require('./mbrojtjetest/satelliteRout');
-const planet = require('./mbrojtjetest/planetRout');
+const player = require('./mbrojtjetest/playerRout');
+const team = require('./mbrojtjetest/teamRout');
 
 //Expressi the connfigat e tij
 const express=require("express");
@@ -67,8 +67,8 @@ app.use("/user-profile", userProfile);
         app.use("/ndertesa", ndertesa);
         app.use("/ashencori", ashencori);
       //mbrojtjeQershor
-        app.use("/satellite", satellite);
-        app.use("/planet", planet);
+        app.use("/team", team);
+        app.use("/player", player);
         
 
 //midleware per err

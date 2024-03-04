@@ -150,8 +150,8 @@ function edito(id){
         });
     }
 
-    function fshijSatellite(id){
-      fetch("http://localhost:3000/satellite/"+id, {
+    function fshijPlayer(id){
+      fetch("http://localhost:3000/player/"+id, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'

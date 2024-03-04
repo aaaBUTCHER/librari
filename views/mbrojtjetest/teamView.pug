@@ -7,22 +7,20 @@ include ../includes/navBar.pug
                 table.table 
                     thead.thead-dark
                         tr
-                            th PlanetId
+                            th TeamId
                             th Name 
-                            th Type 
-                            th isDeleted
                     tbody
                         each o1 in objektet
                             tr 
-                                td= o1.planetId
+                                td= o1.teamId
                                 td= o1.name
-                                td= o1.type
-                                td= o1.isDeleted
+                                td 
+                                    a(href="/player/"+o1.playerId).btn.btn-secondary Edito
 
         .bg-secondary.p-5.pb-1.pt-1(style="border-radius: 10px; margin-top: 85px !important;").m-3.mb-5.mt-5
             h1.m-4.text-center.mt-4 Shto 
                 .justify-content-center
-                    form(method="POST" action="/planet")
+                    form(method="POST" action="/team")
                         table.table
                             tbody
                                 tr
@@ -30,10 +28,6 @@ include ../includes/navBar.pug
                                         .form-group
                                             label(for="name") Name
                                                 input#isbn.form-control(name="name", type="text")
-                                    td
-                                        .form-group
-                                            label(for="type") Type
-                                                input#titulli.form-control(name="type", type="text")
                                     tr.m-1(style ="border: 1px white !important")
                                         td(colspan="4", style =" border-bottom: none;")
                                             .form-group

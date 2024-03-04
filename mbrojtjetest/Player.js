@@ -1,14 +1,16 @@
 const conn = require("../util/db");
 
-class Satellite{
-    constructor(e, d){
+class Player{
+    constructor(e, d, a, b){
         this.name = e;
-        this.planetId = d;
+        this.number = b;
+        this.birthYear= a;
+        this.teamId = d;
     }
 
     static async thirriKejtPrejDb(){
         try{
-            const [row, field] = await  conn.query(`SELECT * FROM libraria.satellite202151835 where isDeleted=false;`);
+            const [row, field] = await  conn.query(`SELECT * FROM libraria.player`);
             console.log("1");
             console.log(row)
             return row;
@@ -19,26 +21,26 @@ class Satellite{
     }
 
     async shtoNjePrejDb(){
-            const query = 'INSERT INTO libraria.satellite202151835 SET ?';
+            const query = 'INSERT INTO libraria.player SET ?';
             const [results] = await conn.query(query, this);
             return results;
     }
 
     static async hekeNjePrejDb(id){
-        const query = 'UPDATE libraria.satellite202151835 SET isDeleted = true WHERE satelliteId = ?';
+        const query = 'UPDATE libraria.player WHERE playerId = ?';
         const [results] = await conn.query(query, [id]);
         return results.affectedRows;
     }
 
     static async thirreNjePrejDb(id){
-        const query = 'SELECT * FROM libraria.satellite202151835 WHERE satelliteId = ?';
+        const query = 'SELECT * FROM libraria.player WHERE playerId = ?';
         const results = await conn.query(query, [id]);
         return results;
     }
     
     async updateNjePrejDb(id) {
         try {
-            const query = 'UPDATE libraria.satellite202151835 SET name = ?, planetId = ? WHERE satelliteId = ?';
+            const query = 'UPDATE libraria.player SET name = ?,number=?, birthYear=?, teamId = ? WHERE playerId = ?';
             const [results] = await conn.query(query, [this.name, this.planetId, id]);
 
             if (results.affectedRows > 0) {
@@ -52,4 +54,4 @@ class Satellite{
     }
 }
 
-module.exports = Satellite;
+module.exports = Player;

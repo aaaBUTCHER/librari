@@ -6,26 +6,28 @@ include ../includes/navBar.pug
                 table.table 
                     thead.thead-dark
                         tr
-                            th SatelliteId
+                            th PlayerId
                             th Name 
-                            th PlanetId 
-                            th isDeleted
+                            th Number 
+                            th BirthYear 
+                            th TeamId 
                     tbody
                         each o1 in objektet1
                             tr 
                                 td= o1.satelliteId
                                 td= o1.name
-                                td= o1.planetId
-                                td= o1.isDeleted
+                                td= o1.number
+                                td= o1.birthYear
+                                td= o1.teamId
                                 td 
-                                    a(href="/satellite/"+o1.satelliteId).btn.btn-secondary Edito
+                                    a(href="/player/"+o1.playerId).btn.btn-secondary Edito
                                 td 
-                                    button.btn.btn-danger(onclick="fshijSatellite("+o1.satelliteId+")") Fshije
+                                    button.btn.btn-danger(onclick="fshijPlayer("+o1.playerId+")") Fshije
 
         .bg-secondary.p-5.pb-1.pt-1(style="border-radius: 10px; margin-top: 85px !important;").m-3.mb-5.mt-5
             h1.m-4.text-center.mt-4 Shto 
                 .justify-content-center
-                    form(method="POST" action="/satellite")
+                    form(method="POST" action="/player")
                         table.table
                             tbody
                                 tr
@@ -35,10 +37,18 @@ include ../includes/navBar.pug
                                                 input#isbn.form-control(name="name", type="text")
                                     td
                                         .form-group
-                                            label(for="planetId") planetID
-                                                    select#planetId.form-control(name="planetId")
+                                            label(for="number") Number
+                                                input#isbn.form-control(name="number", type="number")
+                                    td
+                                        .form-group
+                                            label(for="birthYear") BirthYear
+                                                input#isbn.form-control(name="birthYear", type="number")
+                                    td
+                                        .form-group
+                                            label(for="teamId") teamId
+                                                    select#planetId.form-control(name="teamId")
                                                         each o2 in objektet2
-                                                            option(value=o2.planetId)= o2.name
+                                                            option(value=o2.teamId)= o2.name
                                     tr.m-1(style ="border: 1px white !important")
                                         td(colspan="4", style =" border-bottom: none;")
                                             .form-group
