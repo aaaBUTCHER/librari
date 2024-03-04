@@ -31,6 +31,4 @@ exports.updateUser = async (req, res)=>{
         console.log(req.session);
         res.send(req.body).status(200);
     }
-    
-    
 }
