@@ -2,9 +2,9 @@ const mysql = require('mysql2');
 
 const options = {
     host: "localhost",
-    user: process.env.librariaUsername,
+    user: "root",
     database: "libraria",
-    password: process.env.librariaPassword
+    password: "root"
 }
 const pool = mysql.createPool(options);
 
